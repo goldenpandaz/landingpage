@@ -1,0 +1,119 @@
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+  position: relative;
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border);
+  padding: 52px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+  overflow: hidden;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.footer-logo {
+  height: 200px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.3));
+}
+
+.footer-logo-light { display: none; }
+
+:root.light .footer-logo-dark,
+[data-palette="warm"].light .footer-logo-dark,
+[data-palette="clean"].light .footer-logo-dark { display: none; }
+
+:root.light .footer-logo-light,
+[data-palette="warm"].light .footer-logo-light,
+[data-palette="clean"].light .footer-logo-light { display: block; }
+
+.footer-credits {
+  font-size: 0.83rem;
+  color: var(--text-muted);
+}
+
+.footer-links {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-links a {
+  font-size: 0.83rem;
+  color: var(--text-muted);
+  transition: color var(--transition);
+}
+
+.footer-links a:hover {
+  color: var(--gold);
+}
+
+/* ============================================================
+   FLOATING WHATSAPP
+   ============================================================ */
+.float-wa {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 52px;
+  height: 52px;
+  background: var(--wa);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: #fff;
+  box-shadow: 0 4px 18px rgba(var(--wa-rgb), 0.4);
+  z-index: 600;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.float-wa::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--wa);
+  animation: wa-ring 2.5s ease-out infinite;
+  z-index: -1;
+}
+
+@keyframes wa-ring {
+  0%   { transform: scale(1);   opacity: 0.55; }
+  100% { transform: scale(2);   opacity: 0; }
+}
+
+.float-wa:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 26px rgba(var(--wa-rgb), 0.6);
+}
+
+/* Botón volver — sólo en nosotros.html */
+.float-back {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 52px;
+  height: 52px;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold-light), var(--gold));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: var(--on-gold);
+  box-shadow: 0 4px 18px rgba(var(--gold-rgb), 0.35);
+  z-index: 600;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.float-back:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 26px rgba(var(--gold-rgb), 0.5);
+}

@@ -1,0 +1,208 @@
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  z-index: 900;
+  background: var(--navbar-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: none;
+  transition: background var(--transition), box-shadow var(--transition);
+}
+
+.navbar::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 8%;
+  right: 8%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-dark), var(--gold), var(--gold-light), var(--gold), var(--gold-dark), transparent);
+  opacity: 0.6;
+}
+
+.navbar.scrolled {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+}
+
+:root.light .navbar,
+[data-palette="warm"] .navbar,
+[data-palette="warm"].light .navbar,
+[data-palette="clean"] .navbar,
+[data-palette="clean"].light .navbar { background: var(--navbar-bg); }
+
+/* Brand */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--text);
+  transition: color var(--transition);
+  white-space: nowrap;
+}
+
+.navbar-icon {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* Links */
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.navbar-links li a {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  padding: 6px 14px;
+  border-radius: 999px;
+  transition: color var(--transition), background var(--transition);
+  white-space: nowrap;
+}
+
+.navbar-links li a:hover {
+  color: var(--text);
+  background: var(--surface);
+}
+
+.navbar-links li a.nav-cta {
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold-light), var(--gold));
+  color: var(--on-gold);
+  font-weight: 600;
+}
+
+.navbar-links li a.nav-cta:hover {
+  background: var(--gold-dark);
+}
+
+/* Controls */
+.navbar-controls {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.btn-palette,
+.btn-theme {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  transition: color var(--transition), background var(--transition);
+}
+
+.btn-palette:hover,
+.btn-theme:hover {
+  color: var(--gold);
+  background: var(--surface);
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 22px;
+  height: 16px;
+  padding: 0;
+  background: none;
+  margin-left: 4px;
+}
+
+.hamburger span {
+  display: block;
+  height: 2px;
+  background: var(--text-muted);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ============================================================
+   MOBILE MENU
+   ============================================================ */
+.mobile-menu {
+  position: fixed;
+  top: 64px;
+  left: 0;
+  right: 0;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  z-index: 800;
+  transform: translateY(-8px);
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 0.28s ease, opacity 0.28s ease, visibility 0.28s ease,
+              background var(--transition), border-color var(--transition);
+}
+
+.mobile-menu.open {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-menu ul {
+  padding: 8px 0 16px;
+}
+
+.mobile-menu ul li a {
+  display: block;
+  padding: 13px 32px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: color var(--transition), background var(--transition);
+}
+
+.mobile-menu ul li a:hover {
+  color: var(--text);
+  background: var(--surface-hover);
+}
+
+.mobile-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 700;
+  display: none;
+}
+
+.mobile-overlay.open {
+  display: block;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+  .navbar { padding: 0 20px; }
+  .navbar-links { display: none; }
+  .hamburger { display: flex; }
+}
+
+@media (max-width: 420px) {
+  .navbar-name { display: none; }
+}

@@ -1,0 +1,276 @@
+/* ============================================================
+   DESIGN TOKENS — 3 palettes × dark/light = 6 combinations
+   ============================================================ */
+
+/* --- Deep Space · Dark (default) --- */
+:root {
+  /* Backgrounds & surfaces */
+  --bg:            #0A0A0A;
+  --bg-alt:        #111111;
+  --surface:       #181818;
+  --surface-hover: #222222;
+
+  /* Gold palette */
+  --gold:          #ffcb59;
+  --gold-dark:     #c29105;
+  --gold-light:    #fef3b2;
+  --gold-rgb:      255, 203, 89;
+  --gold-dark-rgb: 194, 145, 5;
+  --gold-glow:     rgba(var(--gold-rgb), 0.14);
+
+  /* Typography */
+  --text:          #F0F0F0;
+  --text-muted:    #8B8FA8;
+  --on-gold:       #111111;
+
+  /* Structure */
+  --border:        rgba(var(--gold-rgb), 0.15);
+  --shadow:        0 4px 32px rgba(0, 0, 0, 0.6);
+  --radius:        20px;
+  --radius-sm:     10px;
+  --transition:    0.28s ease;
+
+  /* Component tokens */
+  --navbar-bg:     rgba(10, 10, 10, 0.88);
+
+  /* Universal (never change with palette) */
+  --wa:            #25D366;
+  --wa-hover:      #1aab52;
+  --wa-rgb:        37, 211, 102;
+}
+
+/* --- Deep Space · Light --- */
+:root.light {
+  --bg:            #F7F5F0;
+  --bg-alt:        #FFFFFF;
+  --surface:       #FFFFFF;
+  --surface-hover: #EDE9DF;
+  --gold:          #ffcb59;
+  --gold-dark:     #c29105;
+  --gold-light:    #ffe554;
+  --gold-rgb:      255, 203, 89;
+  --gold-dark-rgb: 194, 145, 5;
+  --gold-glow:     rgba(var(--gold-rgb), 0.14);
+  --text:          #111111;
+  --text-muted:    #555555;
+  --border:        rgba(var(--gold-rgb), 0.25);
+  --shadow:        0 4px 24px rgba(0, 0, 0, 0.1);
+  --navbar-bg:     rgba(247, 245, 240, 0.88);
+}
+
+/* --- Warm Studio · Dark --- */
+[data-palette="warm"] {
+  --bg:            #111014;
+  --bg-alt:        #1C1A22;
+  --surface:       #221F2B;
+  --surface-hover: #2C2838;
+  --gold:          #F0B429;
+  --gold-dark:     #C07D00;
+  --gold-light:    #ffd66f;
+  --gold-rgb:      240, 180, 41;
+  --gold-dark-rgb: 192, 125, 0;
+  --gold-glow:     rgba(var(--gold-rgb), 0.14);
+  --text:          #FAFAFA;
+  --text-muted:    #9B93AC;
+  --border:        rgba(var(--gold-rgb), 0.12);
+  --shadow:        0 4px 32px rgba(0, 0, 0, 0.6);
+  --navbar-bg:     rgba(17, 16, 20, 0.85);
+}
+
+/* --- Warm Studio · Light --- */
+[data-palette="warm"].light {
+  --bg:            #FDF8FF;
+  --bg-alt:        #F5F0FB;
+  --surface:       #FFFFFF;
+  --surface-hover: #EDE8F5;
+  --gold:          #F0B429;
+  --gold-dark:     #C07D00;
+  --gold-light:    #ffe4a0;
+  --gold-rgb:      240, 180, 41;
+  --gold-dark-rgb: 192, 125, 0;
+  --gold-glow:     rgba(var(--gold-rgb), 0.14);
+  --text:          #1A1520;
+  --text-muted:    #5E5268;
+  --border:        rgba(var(--gold-rgb), 0.25);
+  --shadow:        0 4px 24px rgba(26, 21, 32, 0.1);
+  --navbar-bg:     rgba(253, 248, 255, 0.9);
+}
+
+/* --- Clean · Dark --- */
+[data-palette="clean"] {
+  --bg:            #0D1117;
+  --bg-alt:        #161B22;
+  --surface:       #21262D;
+  --surface-hover: #2D333B;
+  --gold:          #FFB30E;
+  --gold-dark:     #E09900;
+  --gold-light:    #ffe080;
+  --gold-rgb:      255, 179, 14;
+  --gold-dark-rgb: 224, 153, 0;
+  --gold-glow:     rgba(var(--gold-rgb), 0.1);
+  --text:          #E6EDF3;
+  --text-muted:    #7D8590;
+  --border:        rgba(48, 54, 61, 0.9);
+  --shadow:        0 4px 24px rgba(0, 0, 0, 0.3);
+  --navbar-bg:     rgba(13, 17, 23, 0.85);
+}
+
+/* --- Clean · Light --- */
+[data-palette="clean"].light {
+  --bg:            #FFFFFF;
+  --bg-alt:        #F6F8FA;
+  --surface:       #FFFFFF;
+  --surface-hover: #EFEFEF;
+  --gold:          #FFB30E;
+  --gold-dark:     #E09900;
+  --gold-light:    #ffe080;
+  --gold-rgb:      255, 179, 14;
+  --gold-dark-rgb: 224, 153, 0;
+  --gold-glow:     rgba(var(--gold-rgb), 0.1);
+  --text:          #1F2328;
+  --text-muted:    #57606A;
+  --border:        rgba(var(--gold-rgb), 0.2);
+  --shadow:        0 4px 24px rgba(31, 35, 40, 0.08);
+  --navbar-bg:     rgba(255, 255, 255, 0.92);
+}
+
+/* ============================================================
+   RESET
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 64px;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color var(--transition), color var(--transition);
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+h1, h2, h3, h4, h5 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* ============================================================
+   UTILITIES
+   ============================================================ */
+.gold {
+  color: var(--gold);
+}
+
+.section {
+  padding: 88px 24px;
+  background-color: var(--bg);
+  transition: background-color var(--transition);
+}
+
+.section-alt {
+  background-color: var(--bg-alt);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.section-title {
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 14px;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 44px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-light), var(--gold), var(--gold-dark));
+  background-size: 300% auto;
+  margin: 14px auto 0;
+  border-radius: 2px;
+  animation: title-shine 2.8s linear infinite;
+}
+
+@keyframes title-shine {
+  0%   { background-position: 0% center; }
+  100% { background-position: 300% center; }
+}
+
+.section-sub {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+/* ============================================================
+   CUSTOM SCROLLBAR
+   ============================================================ */
+::-webkit-scrollbar       { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold-dark); }
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.services-grid .reveal:nth-child(1) { transition-delay: 0ms; }
+.services-grid .reveal:nth-child(2) { transition-delay: 80ms; }
+.services-grid .reveal:nth-child(3) { transition-delay: 160ms; }
+.services-grid .reveal:nth-child(4) { transition-delay: 240ms; }
+
+.portfolio-grid .reveal:nth-child(1) { transition-delay: 0ms; }
+.portfolio-grid .reveal:nth-child(2) { transition-delay: 60ms; }
+.portfolio-grid .reveal:nth-child(3) { transition-delay: 120ms; }
+.portfolio-grid .reveal:nth-child(4) { transition-delay: 180ms; }
+.portfolio-grid .reveal:nth-child(5) { transition-delay: 240ms; }
+.portfolio-grid .reveal:nth-child(6) { transition-delay: 300ms; }
+.portfolio-grid .reveal:nth-child(7) { transition-delay: 360ms; }
+.portfolio-grid .reveal:nth-child(8) { transition-delay: 420ms; }
