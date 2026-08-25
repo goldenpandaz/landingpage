@@ -141,11 +141,13 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  cursor: auto !important;
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 64px;
+  scroll-padding-top: 80px;
+  cursor: auto;
 }
 
 body {
@@ -237,6 +239,10 @@ h1, h2, h3, h4, h5 {
   color: var(--text-muted);
   font-size: 1rem;
   margin-top: 10px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
 }
 
 /* ============================================================

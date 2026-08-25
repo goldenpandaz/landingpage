@@ -108,7 +108,7 @@
   align-items: center;
   justify-content: center;
   font-size: 0.88rem;
-  color: var(--text-muted);
+  color: #FFFFFF;
   transition: color var(--transition), background var(--transition);
 }
 
@@ -205,4 +205,137 @@
 
 @media (max-width: 420px) {
   .navbar-name { display: none; }
+}
+
+/* ============================================================
+   NAVBAR TOP — Simplificado (logo + contacto + controles)
+   ============================================================ */
+.navbar-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px min(16vw, 200px);
+  background: rgba(var(--bg-rgb), 0.88);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.navbar-top .navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.navbar-top .navbar-icon {
+  width: 60px;
+  height: 60px;
+}
+
+.navbar-top .navbar-name {
+  display: none;
+}
+
+.navbar-top .navbar-name_old {
+  display: block;
+}
+
+.navbar-top .navbar-controls {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.nav-cta-btn {
+  padding: 8px 20px;
+  background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-light) 50%, var(--gold) 100%);
+  color: var(--on-gold);
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.88rem;
+  text-decoration: none;
+  transition: all var(--transition);
+  cursor: pointer;
+}
+
+.nav-cta-btn:hover {
+  background: var(--gold-dark);
+  transform: scale(1.05);
+}
+
+/* ============================================================
+   NAVBAR BOTTOM — Navegación flotante inferior (Whapy style)
+   ============================================================ */
+.navbar-bottom {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 998;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: rgba(var(--bg-rgb), 0.92);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  transition: all var(--transition);
+}
+
+.navbar-bottom .nav-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  color: #FFFFFF;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.88rem;
+  border-radius: 999px;
+  transition: all var(--transition);
+  white-space: nowrap;
+}
+
+.navbar-bottom .nav-item:hover,
+.navbar-bottom .nav-item.active {
+  background: rgba(var(--gold-rgb), 0.12);
+  color: var(--gold);
+}
+
+.navbar-bottom .nav-item i {
+  font-size: 1rem;
+}
+
+/* Para pantallas pequeñas */
+@media (max-width: 640px) {
+  .navbar-bottom {
+    bottom: 16px;
+    padding: 10px 14px;
+    gap: 6px;
+  }
+
+  .navbar-bottom .nav-item {
+    padding: 8px 12px;
+    font-size: 0.75rem;
+  }
+
+  .navbar-bottom .nav-item span {
+    display: none;
+  }
+
+  .navbar-bottom .nav-item:first-child span {
+    display: inline;
+  }
 }

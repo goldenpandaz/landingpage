@@ -14,6 +14,10 @@
 .hero-carousel {
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .hero-img {
@@ -46,8 +50,8 @@
 }
 
 .hero-logo {
-  width: min(520px, 82vw);
-  margin: 0 auto 28px;
+  width: min(620px, 90vw);
+  margin: 0 auto 12px;
   filter:
     drop-shadow(0 0 24px rgba(var(--gold-rgb), 0.75))
     drop-shadow(0 0 60px rgba(var(--gold-dark-rgb), 0.35))
@@ -56,11 +60,15 @@
 
 .hero-tagline {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(1.3rem, 3.2vw, 2rem);
-  font-weight: 500;
+  font-size: clamp(1rem, 2.8vw, 1.6rem);
+  font-weight: 400;
   color: #fff;
-  letter-spacing: 0.01em;
-  margin-bottom: 36px;
+  letter-spacing: 0em;
+  line-height: 1.4;
+  margin-bottom: 16px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hero-ctas {
@@ -68,6 +76,7 @@
   gap: 14px;
   justify-content: center;
   flex-wrap: wrap;
+  margin-top: 12px;
 }
 
 .btn-hero-primary {
@@ -331,26 +340,45 @@
   margin-top: 44px;
 }
 
+@keyframes btn-more-shimmer {
+  0%       { left: -80%; }
+  40%, 100% { left: 140%; }
+}
+
 .btn-more {
-  background: transparent;
-  border: 1.5px solid var(--gold);
-  color: var(--gold);
+  background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-light) 50%, var(--gold) 100%);
+  color: var(--on-gold);
   font-family: 'Space Grotesk', sans-serif;
-  font-weight: 600;
-  font-size: 0.9rem;
-  padding: 12px 30px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 14px 30px;
   border-radius: 999px;
+  border: none;
   cursor: pointer;
-  transition: background var(--transition), color var(--transition), transform var(--transition);
+  transition: all var(--transition);
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-more::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -80%;
+  width: 55%;
+  height: 200%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.28), transparent);
+  transform: skewX(-20deg);
+  animation: btn-more-shimmer 3.5s ease-in-out 2s infinite;
+  pointer-events: none;
 }
 
 .btn-more:hover {
-  background: linear-gradient(135deg, var(--gold-dark), var(--gold-light), var(--gold));
-  color: var(--on-gold);
   transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(var(--gold-rgb), 0.5);
 }
 
 /* ============================================================
@@ -713,7 +741,7 @@
 body.show-usd .p-cop { display: none; }
 body.show-usd .p-usd { display: inline; }
 .pricing-tabs {
-  display: flex;
+  display: none !important;
   justify-content: center;
   gap: 8px;
   flex-wrap: wrap;
@@ -761,7 +789,7 @@ body.show-usd .p-usd { display: inline; }
 }
 
 .pricing-plans.active {
-  display: grid;
+  display: none !important;
 }
 
 .plan-card {

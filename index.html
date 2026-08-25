@@ -72,27 +72,15 @@
   <!-- SKIP LINK -->
   <a href="#servicios" class="skip-link">Saltar al contenido</a>
 
-  <!-- CUSTOM CURSOR -->
-  <div class="cursor-dot"  id="cursor-dot"  aria-hidden="true"></div>
-  <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
 
   <!-- PAGE TRANSITION -->
   <div class="page-transition" id="page-transition" aria-hidden="true"></div>
 
-  <!-- NAVBAR -->
-  <nav class="navbar" id="navbar">
+  <!-- NAVBAR TOP — Solo logo, iconos, y contacto -->
+  <nav class="navbar navbar-top" id="navbar">
     <a href="#inicio" class="navbar-brand">
       <img src="Image/Icono.png" alt="Golden Panda" class="navbar-icon">
-      <span class="navbar-name">Golden Panda</span>
     </a>
-    <ul class="navbar-links">
-      <li><a href="#inicio">Inicio</a></li>
-      <li><a href="#servicios">Servicios</a></li>
-      <li><a href="#portafolio">Portafolio</a></li>
-      <li><a href="#cotizar">Cotizar</a></li>
-      <li><a href="html/nosotros.html">Nosotros</a></li>
-      <li><a href="#contacto" class="nav-cta">Contacto</a></li>
-    </ul>
     <div class="navbar-controls">
       <button class="btn-palette" id="btn-palette" title="Cambiar paleta" aria-label="Cambiar paleta de colores">
         <i class="fas fa-palette"></i>
@@ -100,14 +88,21 @@
       <button class="btn-theme" id="btn-theme" title="Modo claro/oscuro" aria-label="Cambiar modo">
         <i class="fas fa-moon" id="theme-icon"></i>
       </button>
-      <button class="hamburger" id="hamburger" aria-label="Menú">
-        <span></span><span></span><span></span>
-      </button>
+      <a href="#contacto" class="nav-cta-btn">Contacto</a>
     </div>
   </nav>
 
-  <!-- MOBILE MENU -->
-  <div class="mobile-menu" id="mobile-menu">
+  <!-- NAVBAR BOTTOM FLOATING — Navegación flotante -->
+  <nav class="navbar-bottom" id="navbar-bottom">
+    <a href="#inicio" class="nav-item" title="Inicio"><i class="fas fa-home"></i><span>Inicio</span></a>
+    <a href="#servicios" class="nav-item" title="Servicios"><span>Servicios</span></a>
+    <a href="#portafolio" class="nav-item" title="Portafolio"><span>Portafolio</span></a>
+    <a href="#cotizar" class="nav-item" title="Cotizar"><span>Cotizar</span></a>
+    <a href="html/nosotros.html" class="nav-item" title="Nosotros"><span>Nosotros</span></a>
+  </nav>
+
+  <!-- MOBILE MENU [COMENTADO — Puede usarse si es necesario en mobile] -->
+  <!-- <div class="mobile-menu" id="mobile-menu">
     <ul>
       <li><a href="#inicio">Inicio</a></li>
       <li><a href="#servicios">Servicios</a></li>
@@ -117,10 +112,16 @@
       <li><a href="#contacto">Contacto</a></li>
     </ul>
   </div>
-  <div class="mobile-overlay" id="mobile-overlay"></div>
+  <div class="mobile-overlay" id="mobile-overlay"></div> -->
 
   <!-- HERO -->
   <section id="inicio" class="hero">
+    <video class="hero-carousel" autoplay muted loop playsinline>
+      <source src="Image/inicio/clip_inicio.mp4" type="video/mp4">
+      Tu navegador no soporta videos HTML5.
+    </video>
+
+    <!-- HERO CAROUSEL IMAGES [COMENTADO — Lógica de carrusel conservada para referencia]
     <div class="hero-carousel">
       <img src="Image/inicio/Imagen 1.jpeg" class="hero-img active" alt="" loading="eager">
       <img src="Image/inicio/Imagen 2.jpeg" class="hero-img" alt="" loading="lazy">
@@ -129,25 +130,73 @@
       <img src="Image/inicio/Imagen 5.jpeg" class="hero-img" alt="" loading="lazy">
       <img src="Image/inicio/Imagen 6.jpeg" class="hero-img" alt="" loading="lazy">
     </div>
+    -->
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <div class="available-badge">
+      <!-- <div class="available-badge">
         <span class="available-dot"></span>
         Disponible para nuevos proyectos
-      </div>
+      </div> -->
       <img src="Image/Logo_Color.png" alt="Golden Panda" class="hero-logo">
-      <p class="hero-tagline">Tu imaginación <span class="gold">no tiene límites</span></p>
+      <p class="hero-tagline">Desarrollamos <span class="gold">Soluciones Digitales Personalizadas</span> Que Convierten Tus Ideas En Productos Eficientes Y Escalables.</p>
       <div class="hero-ctas">
-        <a href="#cotizar" class="btn-hero-primary">Cotizar proyecto</a>
-        <a href="#portafolio" class="btn-hero-secondary">Ver portafolio</a>
+        <a href="#cotizar" class="btn-hero-primary">Empezar Ahora</a>
+        <a href="#portafolio" class="btn-hero-secondary">Servicios</a>
       </div>
-      <p class="hero-visitors">
+      <!-- <p class="hero-visitors">
         <i class="fas fa-eye"></i> Más de <strong>500 personas</strong> lo descubrieron este mes
-      </p>
+      </p> -->
     </div>
     <div class="hero-scroll">
       <span>Explorar</span>
       <i class="fas fa-chevron-down"></i>
+    </div>
+  </section>
+
+  <!-- ENFOQUE — Por qué elegirnos -->
+  <section id="enfoque" class="section section-enfoque">
+    <div class="deco-particles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="section-header">
+      <h2 class="section-title">Hacemos que la Tecnología Trabaje para Ti</h2>
+      <p class="section-sub">En Golden Panda, combinamos creatividad y tecnología avanzada para desarrollar soluciones únicas que impulsan el crecimiento de tu negocio. Cada proyecto es una oportunidad para transformar tus ideas en herramientas digitales que generan impacto real y medible.</p>
+    </div>
+
+    <div class="enfoque-grid">
+      <div class="enfoque-card reveal">
+        <div class="enfoque-icon"><i class="fas fa-code"></i></div>
+        <h3>Desarrollo de Software a Medida</h3>
+        <p>Soluciones digitales personalizadas diseñadas para tu negocio específico.</p>
+      </div>
+
+      <div class="enfoque-card reveal">
+        <div class="enfoque-icon"><i class="fas fa-cogs"></i></div>
+        <h3>Automatización de Procesos</h3>
+        <p>Optimización de flujos de trabajo mediante automatización inteligente.</p>
+      </div>
+
+      <div class="enfoque-card reveal">
+        <div class="enfoque-icon"><i class="fas fa-plug"></i></div>
+        <h3>Integraciones Avanzadas</h3>
+        <p>Conexión de sistemas para mejorar la eficiencia operativa.</p>
+      </div>
+
+      <div class="enfoque-card reveal">
+        <div class="enfoque-icon"><i class="fas fa-rocket"></i></div>
+        <h3>Escalabilidad y Rendimiento</h3>
+        <p>Plataformas diseñadas para crecer sin perder rendimiento.</p>
+      </div>
+
+      <div class="enfoque-card reveal">
+        <div class="enfoque-icon"><i class="fas fa-palette"></i></div>
+        <h3>UX/UI Centrado en el Usuario</h3>
+        <p>Diseño enfocado en la usabilidad y la experiencia del cliente.</p>
+      </div>
+
+      <div class="enfoque-card reveal">
+        <div class="enfoque-icon"><i class="fas fa-shield-alt"></i></div>
+        <h3>Soporte y Mantenimiento</h3>
+        <p>Asistencia continua para garantizar que tu solución funcione al máximo.</p>
+      </div>
     </div>
   </section>
 
@@ -166,16 +215,16 @@
           <div class="card-front">
             <div class="service-icon"><i class="fas fa-globe"></i></div>
             <h3>Páginas Web</h3>
-            <p>Diseño y desarrollo de sitios web modernos, responsivos y optimizados.</p>
+            <p>Tu presencia online profesional que convierte visitantes en clientes.</p>
             <span class="card-flip-hint"><i class="fas fa-arrows-rotate"></i> Ver detalles</span>
           </div>
           <div class="card-back">
             <p class="card-back-title"><i class="fas fa-globe"></i> Páginas Web</p>
             <ul class="card-back-features">
               <li><i class="fas fa-check"></i>Landing pages, corporativos y e-commerce</li>
-              <li><i class="fas fa-check"></i>SEO técnico + diseño responsivo</li>
-              <li><i class="fas fa-check"></i>Animaciones y efectos a medida</li>
-              <li><i class="fas fa-check"></i>Código fuente incluido en la entrega</li>
+              <li><i class="fas fa-check"></i>Optimizado para SEO y conversión</li>
+              <li><i class="fas fa-check"></i>Diseño moderno y responsivo en todos los dispositivos</li>
+              <li><i class="fas fa-check"></i>1 mes de soporte post-entrega incluido</li>
             </ul>
             <a href="https://wa.me/573128622945?text=Hola%2C%20me%20interesa%20cotizar%20una%20P%C3%A1gina%20Web" target="_blank" class="service-wa"><i class="fab fa-whatsapp"></i> Consultar</a>
           </div>
@@ -185,41 +234,20 @@
       <div class="service-card reveal">
         <div class="card-inner">
           <div class="card-front">
-            <div class="service-icon"><i class="fas fa-heart"></i></div>
-            <h3>Invitaciones de 15</h3>
-            <p>Tarjetas digitales únicas y elegantes para quinceañeras.</p>
+            <div class="service-icon"><i class="fas fa-envelope"></i></div>
+            <h3>Invitaciones Digitales</h3>
+            <p>Experiencias digitales memorables para cada momento especial de tu vida.</p>
             <span class="card-flip-hint"><i class="fas fa-arrows-rotate"></i> Ver detalles</span>
           </div>
           <div class="card-back">
-            <p class="card-back-title"><i class="fas fa-heart"></i> Invitaciones de 15</p>
+            <p class="card-back-title"><i class="fas fa-envelope"></i> Invitaciones Digitales</p>
             <ul class="card-back-features">
-              <li><i class="fas fa-check"></i>Diseño personalizado con tus colores</li>
-              <li><i class="fas fa-check"></i>Cuenta regresiva + galería de fotos</li>
-              <li><i class="fas fa-check"></i>Música de fondo a elección</li>
-              <li><i class="fas fa-check"></i>RSVP de confirmación incluido</li>
+              <li><i class="fas fa-check"></i>Diseño personalizado: bodas, XV años, cumpleaños, bautizos, comuniones, grados, baby showers y más</li>
+              <li><i class="fas fa-check"></i>Cuenta regresiva animada + galería de fotos + música</li>
+              <li><i class="fas fa-check"></i>Confirmación de asistencia (RSVP) automática</li>
+              <li><i class="fas fa-check"></i>Efectos personalizados y animaciones fluidas</li>
             </ul>
-            <a href="https://wa.me/573128622945?text=Hola%2C%20me%20interesa%20cotizar%20una%20Invitaci%C3%B3n%20de%2015" target="_blank" class="service-wa"><i class="fab fa-whatsapp"></i> Consultar</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="service-card reveal">
-        <div class="card-inner">
-          <div class="card-front">
-            <div class="service-icon"><i class="fas fa-ring"></i></div>
-            <h3>Invitaciones de Boda</h3>
-            <p>Experiencias digitales memorables para el día más especial.</p>
-            <span class="card-flip-hint"><i class="fas fa-arrows-rotate"></i> Ver detalles</span>
-          </div>
-          <div class="card-back">
-            <p class="card-back-title"><i class="fas fa-ring"></i> Invitaciones de Boda</p>
-            <ul class="card-back-features">
-              <li><i class="fas fa-check"></i>Diseño elegante y exclusivo</li>
-              <li><i class="fas fa-check"></i>Cuenta regresiva + galería animada</li>
-              <li><i class="fas fa-check"></i>Mapa Google Maps integrado</li>
-              <li><i class="fas fa-check"></i>RSVP y confirmación de asistencia</li>
-            </ul>
-            <a href="https://wa.me/573128622945?text=Hola%2C%20me%20interesa%20cotizar%20una%20Invitaci%C3%B3n%20de%20Boda" target="_blank" class="service-wa"><i class="fab fa-whatsapp"></i> Consultar</a>
+            <a href="https://wa.me/573128622945?text=Hola%2C%20me%20interesa%20cotizar%20una%20Invitaci%C3%B3n%20Digital" target="_blank" class="service-wa"><i class="fab fa-whatsapp"></i> Consultar</a>
           </div>
         </div>
       </div>
@@ -229,16 +257,16 @@
           <div class="card-front">
             <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
             <h3>Aplicaciones Web</h3>
-            <p>Desarrollo de aplicaciones web a medida, robustas y escalables.</p>
+            <p>Soluciones escalables que automatizan tus procesos y aceleran el crecimiento.</p>
             <span class="card-flip-hint"><i class="fas fa-arrows-rotate"></i> Ver detalles</span>
           </div>
           <div class="card-back">
             <p class="card-back-title"><i class="fas fa-laptop-code"></i> Aplicaciones Web</p>
             <ul class="card-back-features">
-              <li><i class="fas fa-check"></i>Login, roles y panel de usuario</li>
-              <li><i class="fas fa-check"></i>Dashboard + estadísticas en tiempo real</li>
-              <li><i class="fas fa-check"></i>Módulos CRUD y reportes</li>
-              <li><i class="fas fa-check"></i>Firebase o MySQL según el proyecto</li>
+              <li><i class="fas fa-check"></i>Desarrollo personalizado según tus procesos</li>
+              <li><i class="fas fa-check"></i>Seguridad y base de datos robusta</li>
+              <li><i class="fas fa-check"></i>Alojamiento + mantenimiento incluido</li>
+              <li><i class="fas fa-check"></i>Integración con tus sistemas existentes</li>
             </ul>
             <a href="https://wa.me/573128622945?text=Hola%2C%20me%20interesa%20cotizar%20una%20Aplicaci%C3%B3n%20Web" target="_blank" class="service-wa"><i class="fab fa-whatsapp"></i> Consultar</a>
           </div>
@@ -253,7 +281,7 @@
     </div>
   </section>
 
-  <!-- CÓMO TRABAJAMOS -->
+  <!-- CÓMO TRABAJAMOS [COMENTADO - OCULTO]
   <section id="proceso" class="section section-alt">
     <div class="deco-particles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
     <div class="section-header">
@@ -290,6 +318,7 @@
       </div>
     </div>
   </section>
+  -->
 
 
   <!-- MODAL -->
@@ -307,105 +336,23 @@
     </div>
   </div>
 
-  <!-- PORTAFOLIO -->
+  <!-- PORTAFOLIO — CARRUSEL -->
   <section id="portafolio" class="section section-alt">
     <div class="deco-particles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
     <div class="section-header">
       <h2 class="section-title">Portafolio</h2>
-      <p class="section-sub">Proyectos que hablan por sí solos</p>
+      <p class="section-sub">Conocé algunos de nuestros proyectos realizados</p>
     </div>
-    <div class="portfolio-filters">
-      <button class="pf-btn active" data-filter="all">Todos</button>
-      <button class="pf-btn" data-filter="web">Sitio Web</button>
-      <button class="pf-btn" data-filter="app">App Web</button>
-      <button class="pf-btn" data-filter="invitacion">Invitación Digital</button>
-    </div>
-    <div class="portfolio-grid">
 
-      <div class="portfolio-card reveal" data-category="app">
-        <div class="portfolio-thumb" style="--card-color: #1a5c3a;"><i class="fas fa-cash-register"></i></div>
-        <div class="portfolio-info">
-          <h4>Control Cash</h4>
-          <p>Sistema de gestión de caja y pagos</p>
-          <div class="portfolio-tech"><span>JavaScript</span><span>HTML/CSS</span></div>
-          <a href="#" class="btn-ver" target="_blank">Abrir proyecto <i class="fas fa-arrow-up-right-from-square"></i></a>
-        </div>
-      </div>
-
-      <div class="portfolio-card reveal" data-category="app">
-        <div class="portfolio-thumb" style="--card-color: #1a3f6b;"><i class="fas fa-tasks"></i></div>
-        <div class="portfolio-info">
-          <h4>Mis Deberes</h4>
-          <p>App de gestión de tareas y deberes</p>
-          <div class="portfolio-tech"><span>JavaScript</span><span>HTML/CSS</span></div>
-          <a href="#" class="btn-ver" target="_blank">Abrir proyecto <i class="fas fa-arrow-up-right-from-square"></i></a>
-        </div>
-      </div>
-
-      <div class="portfolio-card reveal" data-category="app">
-        <div class="portfolio-thumb" style="--card-color: #3d1a6b;"><i class="fas fa-calendar-alt"></i></div>
-        <div class="portfolio-info">
-          <h4>Agenda Co</h4>
-          <p>Plataforma de agendamiento online</p>
-          <div class="portfolio-tech"><span>JavaScript</span><span>HTML/CSS</span></div>
-          <a href="#" class="btn-ver" target="_blank">Abrir proyecto <i class="fas fa-arrow-up-right-from-square"></i></a>
-        </div>
-      </div>
-
-      <div class="portfolio-card reveal" data-category="web">
-        <div class="portfolio-thumb" style="--card-color: #6b3010;"><i class="fas fa-utensils"></i></div>
-        <div class="portfolio-info">
-          <h4>Resto Bar</h4>
-          <p>Sitio web para restaurante bar</p>
-          <div class="portfolio-tech"><span>HTML/CSS</span><span>JavaScript</span></div>
-          <a href="#" class="btn-ver" target="_blank">Abrir proyecto <i class="fas fa-arrow-up-right-from-square"></i></a>
-        </div>
-      </div>
-
-      <div class="portfolio-card reveal" data-category="invitacion">
-        <div class="portfolio-thumb" style="--card-color: #6b1a3a;"><i class="fas fa-heart"></i></div>
-        <div class="portfolio-info">
-          <h4>Web Invitación 15</h4>
-          <p>Invitación digital para quinceañera</p>
-          <div class="portfolio-tech"><span>HTML/CSS</span><span>JavaScript</span></div>
-          <a href="#" class="btn-ver" target="_blank">Abrir proyecto <i class="fas fa-arrow-up-right-from-square"></i></a>
-        </div>
-      </div>
-
-      <div class="portfolio-card reveal" data-category="invitacion">
-        <div class="portfolio-thumb" style="--card-color: #1a4d6b;"><i class="fas fa-ring"></i></div>
-        <div class="portfolio-info">
-          <h4>Web Invitación Bodas</h4>
-          <p>Invitación digital para matrimonio</p>
-          <div class="portfolio-tech"><span>HTML/CSS</span><span>JavaScript</span></div>
-          <a href="#" class="btn-ver" target="_blank">Abrir proyecto <i class="fas fa-arrow-up-right-from-square"></i></a>
-        </div>
-      </div>
-
-      <div class="portfolio-card reveal" data-category="web">
-        <div class="portfolio-thumb" style="--card-color: #3d6b1a;"><i class="fas fa-user-circle"></i></div>
-        <div class="portfolio-info">
-          <h4>Web Info Personal</h4>
-          <p>Sitio de información personal</p>
-          <div class="portfolio-tech"><span>HTML/CSS</span><span>JavaScript</span></div>
-          <a href="#" class="btn-ver" target="_blank">Abrir proyecto <i class="fas fa-arrow-up-right-from-square"></i></a>
-        </div>
-      </div>
-
-      <div class="portfolio-card reveal" data-category="app">
-        <div class="portfolio-thumb" style="--card-color: #28196b;"><i class="fas fa-building"></i></div>
-        <div class="portfolio-info">
-          <h4>Contab</h4>
-          <p>Módulo de gestión de empresas · U. del Cauca</p>
-          <div class="portfolio-tech"><span>Java</span><span>MySQL</span><span>HTML/CSS</span></div>
-          <a href="#" class="btn-ver" target="_blank">Abrir proyecto <i class="fas fa-arrow-up-right-from-square"></i></a>
-        </div>
-      </div>
-
+    <!-- CARRUSEL HORIZONTAL -->
+    <div class="carousel-container">
+      <div class="carousel-track" id="portfolio-carousel"></div>
+      <button class="carousel-arrow carousel-prev" id="carousel-prev"><i class="fas fa-chevron-left"></i></button>
+      <button class="carousel-arrow carousel-next" id="carousel-next"><i class="fas fa-chevron-right"></i></button>
     </div>
   </section>
 
-  <!-- TESTIMONIOS -->
+  <!-- TESTIMONIOS [COMENTADO - OCULTO]
   <section id="testimonios" class="section">
     <div class="deco-particles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
     <div class="section-header">
@@ -462,6 +409,7 @@
       <button class="t-next" id="t-next" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
     </div>
   </section>
+  -->
 
   <!-- STACK TECNOLÓGICO -->
   <!--
@@ -492,12 +440,17 @@
     <div class="section-header">
       <h2 class="section-title">Cotiza tu proyecto</h2>
       <p class="section-sub">Precios transparentes · Consulta sin compromiso · Ajustamos a tu presupuesto</p>
+      <!-- SELECTOR DE MONEDA — OCULTO POR AHORA -->
+      <!--
       <div class="currency-toggle">
         <button class="currency-btn active" data-currency="cop">COP $</button>
         <button class="currency-btn" data-currency="usd">USD $</button>
       </div>
+      -->
     </div>
 
+    <!-- PLANES DE PRECIOS — OCULTOS POR AHORA -->
+    <!--
     <div class="pricing-tabs" id="pricing-tabs">
       <button class="pricing-tab active" data-plans="plans-web">
         <i class="fas fa-globe"></i><span>Páginas Web</span>
@@ -719,6 +672,7 @@
         <a href="https://wa.me/573128622945?text=Hola%2C%20me%20interesa%20el%20plan%20Premium%20de%20Aplicaci%C3%B3n%20Web" target="_blank" class="btn-plan">Quiero este plan</a>
       </div>
     </div>
+    -->
 
     <!-- Otros servicios -->
     <div class="pricing-other">

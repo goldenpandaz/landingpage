@@ -1,39 +1,39 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   // ============================================================
-  // HERO CAROUSEL
+  // HERO CAROUSEL [COMENTADO — Video clip_inicio.mp4 activo]
   // ============================================================
-  const heroImgs = document.querySelectorAll('.hero-img');
-  if (heroImgs.length > 1) {
-    let current = 0;
-    setInterval(() => {
-      heroImgs[current].classList.remove('active');
-      current = (current + 1) % heroImgs.length;
-      heroImgs[current].classList.add('active');
-    }, 6000);
-  }
+  // const heroImgs = document.querySelectorAll('.hero-img');
+  // if (heroImgs.length > 1) {
+  //   let current = 0;
+  //   setInterval(() => {
+  //     heroImgs[current].classList.remove('active');
+  //     current = (current + 1) % heroImgs.length;
+  //     heroImgs[current].classList.add('active');
+  //   }, 6000);
+  // }
 
   // ============================================================
-  // MOBILE MENU
+  // MOBILE MENU [COMENTADO — Navbar bottom flotante es la alternativa]
   // ============================================================
-  const hamburger     = document.getElementById('hamburger');
-  const mobileMenu    = document.getElementById('mobile-menu');
-  const mobileOverlay = document.getElementById('mobile-overlay');
-
-  function toggleMenu(open) {
-    hamburger?.classList.toggle('open', open);
-    mobileMenu?.classList.toggle('open', open);
-    mobileOverlay?.classList.toggle('open', open);
-    document.body.style.overflow = open ? 'hidden' : '';
-  }
-
-  hamburger?.addEventListener('click', () =>
-    toggleMenu(!mobileMenu.classList.contains('open'))
-  );
-  mobileOverlay?.addEventListener('click', () => toggleMenu(false));
-  document.querySelectorAll('.mobile-menu a').forEach(a =>
-    a.addEventListener('click', () => toggleMenu(false))
-  );
+  // const hamburger     = document.getElementById('hamburger');
+  // const mobileMenu    = document.getElementById('mobile-menu');
+  // const mobileOverlay = document.getElementById('mobile-overlay');
+  //
+  // function toggleMenu(open) {
+  //   hamburger?.classList.toggle('open', open);
+  //   mobileMenu?.classList.toggle('open', open);
+  //   mobileOverlay?.classList.toggle('open', open);
+  //   document.body.style.overflow = open ? 'hidden' : '';
+  // }
+  //
+  // hamburger?.addEventListener('click', () =>
+  //   toggleMenu(!mobileMenu.classList.contains('open'))
+  // );
+  // mobileOverlay?.addEventListener('click', () => toggleMenu(false));
+  // document.querySelectorAll('.mobile-menu a').forEach(a =>
+  //   a.addEventListener('click', () => toggleMenu(false))
+  // );
 
   // ============================================================
   // DARK / LIGHT MODE
@@ -185,15 +185,23 @@ document.addEventListener('DOMContentLoaded', () => {
   // ============================================================
   // NAVBAR ACTIVE SECTION
   // ============================================================
-  const sections   = document.querySelectorAll('section[id]');
-  const navLinks   = document.querySelectorAll('.navbar-links li a[href^="#"]');
+  const sections       = document.querySelectorAll('section[id]');
+  const navLinks       = document.querySelectorAll('.navbar-links li a[href^="#"]');
+  const navBottomItems = document.querySelectorAll('.navbar-bottom .nav-item');
 
   const secObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
+        const targetId = `#${entry.target.id}`;
+
+        // Actualizar navbar top (si existe)
         navLinks.forEach(link => {
-          link.classList.toggle('nav-active',
-            link.getAttribute('href') === `#${entry.target.id}`);
+          link.classList.toggle('nav-active', link.getAttribute('href') === targetId);
+        });
+
+        // Actualizar navbar bottom
+        navBottomItems.forEach(item => {
+          item.classList.toggle('active', item.getAttribute('href') === targetId);
         });
       }
     });
@@ -353,13 +361,17 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ============================================================
-  // EXIT POPUP
+  // EXIT POPUP — Aparece solo después de 30 segundos
   // ============================================================
   const exitPopup = document.getElementById('exit-popup');
   let exitShown   = false;
+  let canShowExit = false;
+
+  // Habilitar exit popup después de 30 segundos
+  setTimeout(() => { canShowExit = true; }, 30000);
 
   function showExitPopup() {
-    if (exitShown || sessionStorage.getItem('gp-exit')) return;
+    if (exitShown || !canShowExit || sessionStorage.getItem('gp-exit')) return;
     exitShown = true;
     sessionStorage.setItem('gp-exit', '1');
     exitPopup?.classList.add('open');
@@ -377,34 +389,6 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('exit-dismiss')?.addEventListener('click', closeExitPopup);
   exitPopup?.addEventListener('click', e => { if (e.target === exitPopup) closeExitPopup(); });
 
-  // ============================================================
-  // CUSTOM CURSOR
-  // ============================================================
-  const cDot  = document.getElementById('cursor-dot');
-  const cRing = document.getElementById('cursor-ring');
-
-  if (cDot && cRing && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-    let mx = 0, my = 0, rx = 0, ry = 0;
-
-    document.addEventListener('mousemove', e => {
-      mx = e.clientX; my = e.clientY;
-      cDot.style.left = mx + 'px';
-      cDot.style.top  = my + 'px';
-    });
-
-    (function loop() {
-      rx += (mx - rx) * 0.16;
-      ry += (my - ry) * 0.16;
-      cRing.style.left = rx + 'px';
-      cRing.style.top  = ry + 'px';
-      requestAnimationFrame(loop);
-    })();
-
-    document.querySelectorAll('a, button, .portfolio-card, .pf-btn, .stack-item').forEach(el => {
-      el.addEventListener('mouseenter', () => { cDot.classList.add('is-hover');  cRing.classList.add('is-hover'); });
-      el.addEventListener('mouseleave', () => { cDot.classList.remove('is-hover'); cRing.classList.remove('is-hover'); });
-    });
-  }
 
   // ============================================================
   // PAGE TRANSITION
@@ -492,38 +476,39 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ============================================================
-  // TYPEWRITER — hero tagline
+  // TYPEWRITER [COMENTADO — Animación removida, texto estático]
   // ============================================================
-  const tagline = document.querySelector('.hero-tagline');
-  if (tagline && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    const parts = [
-      { tag: null,   text: 'Tu imaginación ' },
-      { tag: 'gold', text: 'no tiene límites' },
-    ];
-    tagline.innerHTML = '';
-    const cursor = Object.assign(document.createElement('span'), { className: 'tw-cursor' });
-    tagline.appendChild(cursor);
-
-    let pi = 0, ci = 0, span = null;
-
-    const typeId = setInterval(() => {
-      if (pi >= parts.length) {
-        clearInterval(typeId);
-        setTimeout(() => cursor.remove(), 2200);
-        return;
-      }
-      const part = parts[pi];
-      if (!span && part.tag) {
-        span = Object.assign(document.createElement('span'), { className: part.tag });
-        tagline.insertBefore(span, cursor);
-      }
-      const node = document.createTextNode(part.text[ci]);
-      if (span) span.appendChild(node);
-      else tagline.insertBefore(node, cursor);
-      ci++;
-      if (ci >= part.text.length) { pi++; ci = 0; span = null; }
-    }, 58);
-  }
+  // const tagline = document.querySelector('.hero-tagline');
+  // if (tagline && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  //   const parts = [
+  //     { tag: null,   text: 'Desarrollamos ' },
+  //     { tag: 'gold', text: 'Soluciones Digitales Personalizadas' },
+  //     { tag: null,   text: ' Que Convierten Tus Ideas En Productos Eficientes Y Escalables.' },
+  //   ];
+  //   tagline.innerHTML = '';
+  //   const cursor = Object.assign(document.createElement('span'), { className: 'tw-cursor' });
+  //   tagline.appendChild(cursor);
+  //
+  //   let pi = 0, ci = 0, span = null;
+  //
+  //   const typeId = setInterval(() => {
+  //     if (pi >= parts.length) {
+  //       clearInterval(typeId);
+  //       setTimeout(() => cursor.remove(), 2200);
+  //       return;
+  //     }
+  //     const part = parts[pi];
+  //     if (!span && part.tag) {
+  //       span = Object.assign(document.createElement('span'), { className: part.tag });
+  //       tagline.insertBefore(span, cursor);
+  //     }
+  //     const node = document.createTextNode(part.text[ci]);
+  //     if (span) span.appendChild(node);
+  //     else tagline.insertBefore(node, cursor);
+  //     ci++;
+  //     if (ci >= part.text.length) { pi++; ci = 0; span = null; }
+  //   }, 58);
+  // }
 
   // ============================================================
   // FOCUS TRAP — all modals
@@ -581,5 +566,188 @@ document.addEventListener('DOMContentLoaded', () => {
       card.classList.toggle('flipped');
     });
   });
+
+  // ============================================================
+  // PORTFOLIO ACCORDION (WEBS / INVITACIONES)
+  // ============================================================
+  document.querySelectorAll('.accordion-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const content = header.nextElementSibling;
+      const isOpen = content.classList.contains('open');
+
+      // Cerrar otros acordeones
+      document.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('open'));
+      document.querySelectorAll('.accordion-header').forEach(h => h.classList.remove('open'));
+
+      // Abrir este si no estaba abierto
+      if (!isOpen) {
+        content.classList.add('open');
+        header.classList.add('open');
+      }
+    });
+  });
+
+  // Subsecciones dentro de acordeones
+  document.querySelectorAll('.subsection-header').forEach(header => {
+    header.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const content = header.nextElementSibling;
+      const isOpen = content.classList.contains('open');
+
+      // Cerrar otras subsecciones en el mismo acordeón
+      const parent = header.closest('.accordion-content');
+      parent.querySelectorAll('.subsection-content').forEach(c => c.classList.remove('open'));
+      parent.querySelectorAll('.subsection-header').forEach(h => h.classList.remove('open'));
+
+      // Abrir esta si no estaba abierta
+      if (!isOpen) {
+        content.classList.add('open');
+        header.classList.add('open');
+      }
+    });
+  });
+
+  // ============================================================
+  // PORTFOLIO CAROUSEL — Carrusel horizontal
+  // ============================================================
+  const projects = [
+    { title: 'Kontrol Cash', desc: 'Sistema de gestión de caja y pagos para negocios y uso personal dedicado a la gestión del dinero de cada persona para su mejor uso y manejo', cat: 'Apps', icon: 'fas fa-cash-register', logo: 'Image/portafolio/kontrol_cash/logo.png', preview: 'Image/portafolio/kontrol_cash/portada.jpg', link: 'https://juanzarta.github.io/Kontrol-Cash/login', images: ['Image/portafolio/kontrol_cash/img (1).png', 'Image/portafolio/kontrol_cash/img (2).png', 'Image/portafolio/kontrol_cash/img (3).png', 'Image/portafolio/kontrol_cash/img (4).png', 'Image/portafolio/kontrol_cash/img (5).png'] },
+    { title: 'Panda Journal', desc: 'Aplicación de diario y notas para organizar tus pensamientos de la mejor manera, ejecutando tus tareas diarias y estableciendo un itinerario semanal', cat: 'Apps', icon: 'fas fa-book', logo: 'Image/portafolio/panda_journal/logo.png', preview: 'Image/portafolio/panda_journal/portada.jpg', link: 'https://juanzarta.github.io/Panda-Journal/login', images: ['Image/portafolio/panda_journal/img (1).png', 'Image/portafolio/panda_journal/img (2).png', 'Image/portafolio/panda_journal/img (3).png', 'Image/portafolio/panda_journal/img (4).png', 'Image/portafolio/panda_journal/img (5).png'] },
+    { title: 'PandaLead', desc: 'Gestor integral de leads y clientes para potenciar ventas y mensajes personalizados para mayor alcance a nuestros clientes', cat: 'Apps', icon: 'fas fa-chart-line', logo: 'Image/portafolio/pandalead/logo.png', preview: 'Image/portafolio/pandalead/portada.jpg', link: 'https://goldenpandaz.github.io/PandaLead/login', images: ['Image/portafolio/pandalead/img (1).png', 'Image/portafolio/pandalead/img (2).png', 'Image/portafolio/pandalead/img (3).png', 'Image/portafolio/pandalead/img (4).png', 'Image/portafolio/pandalead/img (5).png', 'Image/portafolio/pandalead/img (6).png'] },
+    { title: 'Agenda Co', desc: 'Plataforma de agendamiento online para gestionar citas y reservas de forma eficiente', cat: 'Apps', icon: 'fas fa-calendar-alt', logo: 'Image/portafolio/agendaco/logo.png', preview: 'Image/portafolio/agendaco/Portada.jpg', link: 'https://agendago-b8ea6.web.app', images: ['Image/portafolio/agendaco/img (1).png', 'Image/portafolio/agendaco/img (2).png', 'Image/portafolio/agendaco/img (3).png', 'Image/portafolio/agendaco/img (4).png', 'Image/portafolio/agendaco/img (5).png', 'Image/portafolio/agendaco/img (6).png', 'Image/portafolio/agendaco/img (7).png', 'Image/portafolio/agendaco/img (8).png'] },
+    { title: 'Rezto Bar', desc: 'Sitio web profesional para restaurante y bares, con reservas, menú, ubicación y domicilios', cat: 'Apps', icon: 'fas fa-utensils', logo: 'Image/portafolio/reztobar/logo.png', preview: 'Image/portafolio/reztobar/portada.jpg', images: ['Image/portafolio/reztobar/img (1).png', 'Image/portafolio/reztobar/img (2).png', 'Image/portafolio/reztobar/img (3).png'] },
+    { title: 'Protocol Events', desc: 'Gestor completo de mi equipo de trabajo, de tareas, por eventos y delegación de responsabilidades', cat: 'Apps', icon: 'fas fa-calendar-days', logo: 'Image/portafolio/protocol_eventz/Logo.png', preview: 'Image/portafolio/protocol_eventz/portada.jpg', link: 'https://juanzarta.github.io/Protocol-EventZ/login', images: ['Image/portafolio/protocol_eventz/img (1).png', 'Image/portafolio/protocol_eventz/img (2).png', 'Image/portafolio/protocol_eventz/img (3).png'] },
+    { title: 'Web Fudesmud', desc: 'FUDESMU es una organización sin ánimo de lucro dedicada al desarrollo integral de comunidades vulnerables', cat: 'Webs', icon: 'fas fa-handshake', logo: 'Image/portafolio/fudesmu/logo.png', preview: 'Image/portafolio/fudesmu/portada.jpg', link: 'https://juanzarta.github.io/Fudesmud/', images: ['Image/portafolio/fudesmu/img (1).png', 'Image/portafolio/fudesmu/img (2).png', 'Image/portafolio/fudesmu/img (3).png'] },
+    { title: 'Club Tiburones', desc: 'Sitio web para club social y deportivo que aumenta vistas y da a conocer el club con calendario, galería de fotos y contacto directo para unirte', cat: 'Webs', icon: 'fas fa-users', logo: 'Image/portafolio/club_tiburones/logo.jpeg', preview: 'Image/portafolio/club_tiburones/portada.jpg', link: 'https://tiburonespopayan.github.io/tiburones/', images: ['Image/portafolio/club_tiburones/img (1).png', 'Image/portafolio/club_tiburones/img (2).png', 'Image/portafolio/club_tiburones/img (3).png', 'Image/portafolio/club_tiburones/img (4).png', 'Image/portafolio/club_tiburones/img (5).png'] },
+    { title: 'Legado Honor', desc: 'Web dedicada a la asesoría, afiliación, defensa y curso de todo tipo de militar', cat: 'Webs', icon: 'fas fa-medal', logo: 'Image/portafolio/legado_de_honor/logo.png', preview: 'Image/portafolio/legado_de_honor/portada.jpg', link: 'https://www.legadodehonor.com.co', images: ['Image/portafolio/legado_de_honor/img (1).png', 'Image/portafolio/legado_de_honor/img (2).png', 'Image/portafolio/legado_de_honor/img (3).png', 'Image/portafolio/legado_de_honor/img (4).png'] },
+    { title: 'Bank', desc: 'Sistema de gestión bancaria completo para administrar transacciones y cuentas', cat: 'Apps', icon: 'fas fa-university', logo: '', preview: '', images: [] },
+    { title: 'Ecommer-Z', desc: 'Plataforma de e-commerce inteligente para vender productos online', cat: 'Apps', icon: 'fas fa-shopping-cart', logo: '', preview: '', images: [] },
+    { title: 'Web Abogado', desc: 'Landing page profesional para despacho de abogados y asesoría legal', cat: 'Webs', icon: 'fas fa-gavel', logo: 'Image/portafolio/web_abogado/logo.png', preview: 'Image/portafolio/web_abogado/portada.jpg', link: 'https://goldenpandaz.github.io/demo-abogado-landing/', images: ['Image/portafolio/web_abogado/img (1).png', 'Image/portafolio/web_abogado/img (2).png', 'Image/portafolio/web_abogado/img (3).png'] },
+    { title: 'Web Barbería', desc: 'Sitio web atractivo para barbería con galería y reservas de citas', cat: 'Webs', icon: 'fas fa-cut', logo: 'Image/portafolio/web_barberia/logo.png', preview: 'Image/portafolio/web_barberia/portada.jpg', link: 'https://goldenpandaz.github.io/demo-barberia-landing/', images: ['Image/portafolio/web_barberia/img (1).png', 'Image/portafolio/web_barberia/img (2).png', 'Image/portafolio/web_barberia/img (3).png'] },
+    { title: 'Web Ferretería', desc: 'Landing para ferretería con catálogo de productos y contacto', cat: 'Webs', icon: 'fas fa-hammer', logo: 'Image/portafolio/web_ferreteria/logo.png', preview: 'Image/portafolio/web_ferreteria/portada.jpg', link: 'https://goldenpandaz.github.io/demo-ferreteria-landing/', images: ['Image/portafolio/web_ferreteria/img (1).png', 'Image/portafolio/web_ferreteria/img (2).png', 'Image/portafolio/web_ferreteria/img (3).png'] },
+    { title: 'Web Gimnasio', desc: 'Sitio web moderno para gimnasio con membresías y clases online', cat: 'Webs', icon: 'fas fa-dumbbell', logo: 'Image/portafolio/web_gimnasio/logo.png', preview: 'Image/portafolio/web_gimnasio/portada.jpg', link: 'https://goldenpandaz.github.io/demo-gimnasio-landing/', images: ['Image/portafolio/web_gimnasio/img (1).png', 'Image/portafolio/web_gimnasio/img (2).png', 'Image/portafolio/web_gimnasio/img (3).png', 'Image/portafolio/web_gimnasio/img (4).png'] },
+    { title: 'Web Odontología', desc: 'Landing profesional para consultorio dental con servicios y equipo', cat: 'Webs', icon: 'fas fa-tooth', logo: '', preview: '', images: [] },
+    { title: 'Web Restaurante', desc: 'Sitio web elegante para restaurante con menú, reservas y ubicación', cat: 'Webs', icon: 'fas fa-utensils', logo: '', preview: '', images: [] },
+    { title: 'Web Spa', desc: 'Landing para spa y masajes con servicios y horarios disponibles', cat: 'Webs', icon: 'fas fa-spa', logo: '', preview: '', images: [] },
+    { title: 'Web Veterinaria', desc: 'Sitio web profesional para clínica veterinaria con servicios y contacto', cat: 'Webs', icon: 'fas fa-stethoscope', logo: '', preview: '', images: [] },
+    { title: 'Web Veterinaria', desc: 'Plataforma completa de clínica veterinaria con historia clínica digital', cat: 'Webs', icon: 'fas fa-stethoscope', logo: '', preview: '', images: [] },
+    { title: 'Web Personal', desc: 'Sitio de información personal y portafolio profesional con proyectos', cat: 'Webs', icon: 'fas fa-user-circle', logo: '', preview: '', images: [] },
+    { title: 'Web XV', desc: 'Invitación digital interactiva para celebración de XV años memorable', cat: 'Invitaciones', icon: 'fas fa-heart', logo: '', preview: '', images: [] },
+    { title: 'Web Bautizo', desc: 'Invitación digital elegante para bautizo con información del evento', cat: 'Invitaciones', icon: 'fas fa-water', logo: '', preview: '', images: [] },
+    { title: 'Web Boda', desc: 'Invitación digital exclusiva para matrimonio con detalles especiales', cat: 'Invitaciones', icon: 'fas fa-ring', logo: '', preview: '', images: [] },
+    { title: 'Web Comunión', desc: 'Invitación digital para comunión con galería y confirmación de asistencia', cat: 'Invitaciones', icon: 'fas fa-child', logo: '', preview: '', images: [] },
+    { title: 'Web Corporativo', desc: 'Invitación digital profesional para eventos corporativos y conferencias', cat: 'Invitaciones', icon: 'fas fa-briefcase', logo: '', preview: '', images: [] },
+    { title: 'Web Cumpleaños', desc: 'Invitación digital festiva para cumpleaños con sorpresas interactivas', cat: 'Invitaciones', icon: 'fas fa-birthday-cake', logo: '', preview: '', images: [] },
+    { title: 'Web Grado', desc: 'Invitación digital para grado con fotos de la promoción y detalles', cat: 'Invitaciones', icon: 'fas fa-graduation-cap', logo: '', preview: '', images: [] },
+    { title: 'Web General', desc: 'Plantilla de invitación digital personalizable para cualquier evento', cat: 'Invitaciones', icon: 'fas fa-envelope', logo: '', preview: '', images: [] }
+  ];
+
+  const carousel = document.getElementById('portfolio-carousel');
+  const prevBtn = document.getElementById('carousel-prev');
+  const nextBtn = document.getElementById('carousel-next');
+
+  // Filtrar solo proyectos con imágenes
+  const projectsWithImages = projects.filter(p => p.images.length > 0);
+
+  if (carousel) {
+    carousel.innerHTML = projectsWithImages.map((p) => `
+      <div class="portfolio-item" data-project-title="${p.title}">
+        <div class="portfolio-project-card" onclick="openProjectModal('${p.title}')">
+          <div class="project-header">
+            <div class="project-info">
+              <h3 class="project-title">${p.title.toUpperCase()}</h3>
+              <p class="project-desc">${p.desc}</p>
+            </div>
+            <div class="project-icon">${p.logo ? `<img src="${p.logo}" alt="${p.title}" class="project-logo">` : `<i class="fas fa-image"></i>`}</div>
+          </div>
+          ${p.preview ? `<img src="${p.preview}" alt="${p.title}" class="project-preview">` : `<div class="project-preview" style="background: rgba(var(--gold-rgb), 0.1);"></div>`}
+          <a href="${p.link || '#'}" class="project-btn" onclick="event.stopPropagation(); ${p.link ? '' : 'event.preventDefault();'}" ${p.link ? `target="_blank"` : ''}>Ver más →</a>
+        </div>
+      </div>
+    `).join('');
+
+    if (prevBtn && nextBtn) {
+      prevBtn.addEventListener('click', () => carousel.scrollBy({ left: -400, behavior: 'smooth' }));
+      nextBtn.addEventListener('click', () => carousel.scrollBy({ left: 400, behavior: 'smooth' }));
+    }
+  }
+
+  // Modal de imágenes del proyecto
+  window.openProjectModal = function(projectId) {
+    let modal = document.getElementById('project-modal');
+    if (!modal) {
+      const newModal = document.createElement('div');
+      newModal.id = 'project-modal';
+      newModal.className = 'project-modal';
+      newModal.innerHTML = `
+        <div class="modal-overlay" onclick="closeProjectModal()"></div>
+        <div class="modal-window">
+          <div class="modal-header">
+            <h2 class="modal-title" id="modal-title"></h2>
+            <button class="modal-close" onclick="closeProjectModal()"><i class="fas fa-times"></i></button>
+          </div>
+          <div class="modal-body">
+            <div class="modal-images" id="modal-images"></div>
+          </div>
+          <div class="modal-footer">
+            <button class="modal-arrow modal-prev" onclick="prevImage()"><i class="fas fa-chevron-left"></i></button>
+            <div class="modal-dots" id="modal-dots"></div>
+            <button class="modal-arrow modal-next" onclick="nextImage()"><i class="fas fa-chevron-right"></i></button>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(newModal);
+      modal = newModal;
+    }
+
+    // Buscar proyecto por título
+    const project = projects.find(p => p.title === projectId);
+    document.getElementById('modal-title').textContent = project.title.toUpperCase();
+    const imagesHtml = (project.images.length > 0 ? project.images : Array(4).fill('https://via.placeholder.com/800x600/1a2940/gold?text=Sin+imagen')).map((img, i) => `
+      <img src="${img}" alt="Screenshot ${i+1}" ${i === 0 ? 'class="active"' : ''}>
+    `).join('');
+    document.getElementById('modal-images').innerHTML = imagesHtml;
+
+    // Dots - cantidad real de imágenes
+    const numImages = project.images.length > 0 ? project.images.length : 4;
+    const dotsHtml = Array(numImages).fill().map((_, i) => `
+      <span class="dot${i === 0 ? ' active' : ''}" onclick="showImage(${i})"></span>
+    `).join('');
+    document.getElementById('modal-dots').innerHTML = dotsHtml;
+
+    window.currentImageIndex = 0;
+    modal.classList.add('show');
+  };
+
+  window.closeProjectModal = function() {
+    const modal = document.getElementById('project-modal');
+    if (modal) {
+      modal.classList.add('closing');
+      setTimeout(() => {
+        modal.classList.remove('show', 'closing');
+      }, 350);
+    }
+  };
+
+  window.showImage = function(index) {
+    const images = document.querySelectorAll('#modal-images img');
+    window.currentImageIndex = index;
+    images.forEach((img, i) => img.classList.toggle('active', i === index));
+    document.querySelectorAll('.dot').forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+    });
+  };
+
+  window.nextImage = function() {
+    const images = document.querySelectorAll('#modal-images img');
+    window.currentImageIndex = (window.currentImageIndex + 1) % images.length;
+    window.showImage(window.currentImageIndex);
+  };
+
+  window.prevImage = function() {
+    const images = document.querySelectorAll('#modal-images img');
+    window.currentImageIndex = (window.currentImageIndex - 1 + images.length) % images.length;
+    window.showImage(window.currentImageIndex);
+  };
 
 });
