@@ -4,15 +4,24 @@
 
 /* Intro: dos columnas de texto */
 .nos-intro {
-  padding-top: 104px;
+  padding-top: clamp(80px, 10vw, 104px);
 }
 
 .nos-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  max-width: 1100px;
+  grid-template-columns: 1fr;
+  gap: clamp(24px, 5vw, 48px);
+  max-width: 100%;
   margin: 0 auto;
+  padding: 0 16px;
+}
+
+@media (min-width: 768px) {
+  .nos-grid {
+    grid-template-columns: 1fr 1fr;
+    max-width: 1100px;
+    padding: 0;
+  }
 }
 
 .nos-block .section-title.left::after {
@@ -21,7 +30,7 @@
 
 .nos-block p {
   color: var(--text-muted);
-  font-size: 0.93rem;
+  font-size: clamp(0.85rem, 1.8vw, 0.95rem);
   line-height: 1.75;
   margin-top: 16px;
 }
@@ -29,20 +38,34 @@
 /* Team */
 .team-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  max-width: 720px;
+  grid-template-columns: 1fr;
+  gap: clamp(16px, 3vw, 24px);
+  max-width: 100%;
   margin: 0 auto;
+  padding: 0 16px;
+}
+
+@media (min-width: 480px) {
+  .team-grid {
+    grid-template-columns: 1fr 1fr;
+    padding: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .team-grid {
+    max-width: 720px;
+  }
 }
 
 .team-card {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 28px 24px;
+  padding: clamp(18px, 3vw, 28px) clamp(16px, 3vw, 24px);
   display: flex;
   align-items: flex-start;
-  gap: 18px;
+  gap: clamp(12px, 2vw, 18px);
   transition: border-color var(--transition), background var(--transition), transform var(--transition);
 }
 
@@ -52,8 +75,8 @@
 }
 
 .team-photo {
-  width: 72px;
-  height: 72px;
+  width: clamp(60px, 12vw, 72px);
+  height: clamp(60px, 12vw, 72px);
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
@@ -61,12 +84,12 @@
 }
 
 .team-info h4 {
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 2vw, 1.05rem);
   margin-bottom: 3px;
 }
 
 .team-role {
-  font-size: 0.78rem;
+  font-size: clamp(0.7rem, 1.5vw, 0.8rem);
   color: var(--gold);
   font-weight: 600;
   display: block;
@@ -74,7 +97,7 @@
 }
 
 .team-info p {
-  font-size: 0.83rem;
+  font-size: clamp(0.75rem, 1.5vw, 0.85rem);
   color: var(--text-muted);
   line-height: 1.55;
 }
@@ -86,22 +109,31 @@
 
 .terms-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  max-width: 1000px;
+  grid-template-columns: 1fr;
+  gap: clamp(16px, 3vw, 24px);
+  max-width: 100%;
   margin: 0 auto;
+  padding: 0 16px;
+}
+
+@media (min-width: 768px) {
+  .terms-grid {
+    grid-template-columns: 1fr 1fr;
+    max-width: 1000px;
+    padding: 0;
+  }
 }
 
 .terms-block {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 28px 24px;
+  padding: clamp(18px, 3vw, 28px) clamp(16px, 3vw, 24px);
   transition: background var(--transition), border-color var(--transition);
 }
 
 .terms-block h4 {
-  font-size: 0.95rem;
+  font-size: clamp(0.85rem, 2vw, 1rem);
   margin-bottom: 12px;
   color: var(--text);
   display: flex;
@@ -111,11 +143,11 @@
 
 .terms-block h4 i {
   color: var(--gold);
-  font-size: 0.88rem;
+  font-size: clamp(0.75rem, 1.8vw, 0.9rem);
 }
 
 .terms-block p {
-  font-size: 0.85rem;
+  font-size: clamp(0.75rem, 1.5vw, 0.85rem);
   color: var(--text-muted);
   line-height: 1.7;
 }
@@ -123,38 +155,51 @@
 /* Closing message */
 .nos-gracias {
   text-align: center;
-  padding: 64px 24px;
+  padding: clamp(48px, 8vw, 64px) 16px;
 }
 
 .gracias-text {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
   color: var(--text-muted);
   line-height: 1.7;
 }
 
 /* ============================================================
-   RESPONSIVE
+   RESPONSIVE — Standardized Breakpoints
    ============================================================ */
-@media (max-width: 768px) {
-  .nos-grid {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
 
-  .team-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .terms-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 480px) {
+/* Mobile large (480px - 639px) */
+@media (max-width: 639px) {
   .team-card {
     flex-direction: column;
     align-items: center;
     text-align: center;
+  }
+
+  .team-photo {
+    margin: 0 auto;
+  }
+}
+
+/* Mobile small (320px - 479px) */
+@media (max-width: 479px) {
+  .nos-block {
+    padding: 0 8px;
+  }
+
+  .team-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 16px 12px;
+  }
+
+  .team-photo {
+    margin: 0 auto;
+  }
+
+  .gracias-text {
+    padding: 0 8px;
   }
 }

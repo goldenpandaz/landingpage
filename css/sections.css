@@ -3,7 +3,7 @@
    ============================================================ */
 .hero {
   position: relative;
-  height: 100vh;
+  height: 100dvh;
   min-height: 580px;
   display: flex;
   align-items: center;
@@ -82,8 +82,8 @@
 .btn-hero-primary {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
-  font-size: 0.95rem;
-  padding: 14px 30px;
+  font-size: clamp(0.85rem, 2vw, 0.95rem);
+  padding: clamp(10px, 2vw, 14px) clamp(24px, 3vw, 30px);
   border-radius: 999px;
   background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-light) 50%, var(--gold) 100%);
   color: var(--on-gold);
@@ -119,8 +119,8 @@
 .btn-hero-secondary {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 600;
-  font-size: 0.95rem;
-  padding: 13px 30px;
+  font-size: clamp(0.85rem, 2vw, 0.95rem);
+  padding: clamp(10px, 2vw, 13px) clamp(24px, 3vw, 30px);
   border-radius: 999px;
   border: 1.5px solid rgba(255, 255, 255, 0.55);
   color: #fff;
@@ -196,14 +196,14 @@
 
 .hero-stat strong {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.35rem;
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
   font-weight: 800;
   color: var(--gold);
   line-height: 1;
 }
 
 .hero-stat span {
-  font-size: 0.72rem;
+  font-size: clamp(0.65rem, 1.2vw, 0.8rem);
   color: rgba(255, 255, 255, 0.6);
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -245,19 +245,35 @@
   background: linear-gradient(90deg, var(--gold-dark), var(--gold-light), var(--gold));
   color: var(--on-gold);
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.68rem;
+  font-size: clamp(0.6rem, 1.2vw, 0.75rem);
   font-weight: 700;
-  padding: 3px 12px;
+  padding: clamp(2px, 0.5vw, 3px) clamp(10px, 1.5vw, 12px);
   border-radius: 999px;
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   gap: 18px;
-  max-width: 860px;
+  max-width: 100%;
   margin: 0 auto;
+  padding: 0 16px;
+}
+
+@media (min-width: 480px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 860px;
+    padding: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
 }
 
 .service-card {
@@ -324,14 +340,14 @@
 }
 
 .service-card h3 {
-  font-size: 1.05rem;
+  font-size: clamp(0.95rem, 2.5vw, 1.2rem);
   margin-bottom: 8px;
   color: var(--text);
 }
 
 .service-card p {
   color: var(--text-muted);
-  font-size: 0.88rem;
+  font-size: clamp(0.8rem, 1.8vw, 0.95rem);
   line-height: 1.6;
 }
 
@@ -350,8 +366,8 @@
   color: var(--on-gold);
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
-  font-size: 0.95rem;
-  padding: 14px 30px;
+  font-size: clamp(0.85rem, 2vw, 0.95rem);
+  padding: clamp(10px, 2vw, 14px) clamp(24px, 3vw, 30px);
   border-radius: 999px;
   border: none;
   cursor: pointer;
@@ -361,6 +377,7 @@
   gap: 8px;
   position: relative;
   overflow: hidden;
+  min-height: 44px;
 }
 
 .btn-more::after {
@@ -394,10 +411,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 24px;
+  padding: clamp(16px, 5vw, 24px);
   opacity: 0;
   visibility: hidden;
   transition: opacity var(--transition), visibility var(--transition);
+  overflow-y: auto;
 }
 
 .modal-overlay.open {
@@ -409,10 +427,11 @@
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 40px;
+  padding: clamp(24px, 6vw, 40px);
   max-width: 460px;
   width: 100%;
   position: relative;
+  z-index: 1010;
   transform: translateY(16px);
   transition: transform var(--transition), background var(--transition), border-color var(--transition);
 }
@@ -443,13 +462,13 @@
 }
 
 .modal h3 {
-  font-size: 1.35rem;
+  font-size: clamp(1.1rem, 3.5vw, 1.4rem);
   margin-bottom: 6px;
 }
 
 .modal-sub {
   color: var(--text-muted);
-  font-size: 0.88rem;
+  font-size: clamp(0.8rem, 1.5vw, 0.9rem);
   margin-bottom: 28px;
 }
 
@@ -478,12 +497,12 @@
 }
 
 .modal-item i {
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
   color: var(--gold);
 }
 
 .modal-item span {
-  font-size: 0.82rem;
+  font-size: clamp(0.75rem, 1.5vw, 0.85rem);
   color: var(--text-muted);
   line-height: 1.4;
 }
@@ -493,10 +512,31 @@
    ============================================================ */
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 1fr;
   gap: 18px;
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
+  padding: 0 16px;
+}
+
+@media (min-width: 480px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1200px;
+  }
 }
 
 .portfolio-card {
@@ -534,13 +574,13 @@
 }
 
 .portfolio-info h4 {
-  font-size: 0.92rem;
+  font-size: clamp(0.85rem, 2vw, 1rem);
   margin-bottom: 5px;
   color: var(--text);
 }
 
 .portfolio-info p {
-  font-size: 0.76rem;
+  font-size: clamp(0.7rem, 1.5vw, 0.8rem);
   color: var(--text-muted);
   margin-bottom: 14px;
   line-height: 1.45;
@@ -554,9 +594,9 @@
 }
 
 .portfolio-tech span {
-  font-size: 0.68rem;
+  font-size: clamp(0.6rem, 1.2vw, 0.75rem);
   font-weight: 600;
-  padding: 2px 8px;
+  padding: clamp(1px, 0.5vw, 2px) clamp(6px, 1vw, 8px);
   border-radius: 4px;
   background: linear-gradient(90deg, var(--gold-dark), var(--gold-light), var(--gold));
   -webkit-background-clip: text;
@@ -570,7 +610,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.78rem;
+  font-size: clamp(0.7rem, 1.5vw, 0.85rem);
   font-weight: 600;
   background: linear-gradient(90deg, var(--gold-dark), var(--gold-light), var(--gold));
   -webkit-background-clip: text;
@@ -578,6 +618,7 @@
   background-clip: text;
   font-family: 'Space Grotesk', sans-serif;
   transition: gap var(--transition);
+  padding: 4px 0;
 }
 
 .btn-ver:hover {
@@ -589,10 +630,26 @@
    ============================================================ */
 .contact-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   gap: 20px;
-  max-width: 700px;
+  max-width: 100%;
   margin: 0 auto;
+  padding: 0 16px;
+}
+
+@media (min-width: 480px) {
+  .contact-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .contact-grid {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 700px;
+    padding: 0;
+  }
 }
 
 .contact-card {
@@ -632,57 +689,180 @@
 .contact-label {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 600;
-  font-size: 0.98rem;
+  font-size: clamp(0.88rem, 2vw, 1rem);
   color: var(--text);
 }
 
 .contact-hint {
-  font-size: 0.76rem;
+  font-size: clamp(0.7rem, 1.5vw, 0.8rem);
   color: var(--text-muted);
 }
 
 /* ============================================================
-   RESPONSIVE
+   RESPONSIVE — Standardized Breakpoints
    ============================================================ */
-@media (max-width: 1024px) {
+
+/* Tablet large (1024px+) to Desktop standard */
+@media (max-width: 1023px) {
   .portfolio-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@media (max-width: 768px) {
+/* Tablet standard (768px - 1023px) */
+@media (max-width: 1023px) and (min-width: 768px) {
+  .section {
+    padding: 80px 32px;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 900px;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .contact-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Tablet small to Mobile large (480px - 767px) */
+@media (max-width: 767px) {
   .section {
     padding: 64px 20px;
   }
 
+  .section-sub {
+    padding: 0 16px;
+  }
+
   .services-grid {
     grid-template-columns: 1fr;
-    max-width: 480px;
+    max-width: 100%;
   }
 
   .portfolio-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
   }
 
   .contact-grid {
     grid-template-columns: 1fr;
-    max-width: 340px;
+    max-width: 100%;
   }
 
   .modal {
-    padding: 32px 24px;
+    padding: clamp(20px, 5vw, 32px);
+    max-width: 90vw;
+  }
+
+  .modal-overlay {
+    padding: clamp(12px, 4vw, 16px);
   }
 }
 
-@media (max-width: 520px) {
+/* Mobile large (480px - 639px) */
+@media (max-width: 639px) {
+  .section {
+    padding: 56px 16px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    max-width: 100%;
+  }
+
   .portfolio-grid {
     grid-template-columns: 1fr;
-    max-width: 380px;
-    margin: 0 auto;
+    gap: 12px;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
 
   .modal-grid {
     grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
+/* Mobile small (320px - 479px) */
+@media (max-width: 479px) {
+  .section {
+    padding: 48px 16px;
+  }
+
+  .section-header {
+    margin-bottom: 40px;
+  }
+
+  .section-title {
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    max-width: 100%;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    max-width: 100%;
+  }
+
+  .portfolio-thumb {
+    height: 100px;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    max-width: 100%;
+  }
+
+  .modal {
+    max-width: 95vw;
+    padding: clamp(16px, 4vw, 24px);
+  }
+
+  .modal-overlay {
+    padding: clamp(8px, 3vw, 12px);
+  }
+
+  .modal-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .modal-close {
+    width: 28px;
+    height: 28px;
+    font-size: 0.75rem;
+    top: 12px;
+    right: 12px;
+  }
+
+  .hero-ctas {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .btn-hero-primary,
+  .btn-hero-secondary {
+    width: 100%;
+    max-width: 220px;
+    text-align: center;
+    font-size: clamp(0.85rem, 2vw, 0.95rem);
+    padding: clamp(10px, 2vw, 14px) clamp(20px, 4vw, 30px);
   }
 }
 
@@ -692,12 +872,13 @@
 .contact-note {
   text-align: center;
   margin-top: 32px;
-  font-size: 0.83rem;
+  font-size: clamp(0.75rem, 1.5vw, 0.85rem);
   color: var(--text-muted);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
+  flex-wrap: wrap;
 }
 
 .contact-note i {
@@ -717,16 +898,19 @@
 }
 
 .currency-btn {
-  padding: 6px 18px;
+  padding: clamp(4px, 1.5vw, 6px) clamp(14px, 2vw, 18px);
   border-radius: 999px;
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.82rem;
+  font-size: clamp(0.75rem, 1.5vw, 0.85rem);
   font-weight: 700;
   color: var(--text-muted);
   background: var(--surface);
   border: 1.5px solid var(--border);
   cursor: pointer;
   transition: color var(--transition), background var(--transition), border-color var(--transition);
+  min-height: 36px;
+  display: flex;
+  align-items: center;
 }
 
 .currency-btn.active {
@@ -752,10 +936,10 @@ body.show-usd .p-usd { display: inline; }
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 20px;
+  padding: clamp(8px, 1.5vw, 10px) clamp(16px, 2vw, 20px);
   border-radius: 999px;
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.88rem;
+  font-size: clamp(0.8rem, 1.5vw, 0.9rem);
   font-weight: 600;
   color: var(--text-muted);
   background: var(--surface);
@@ -763,6 +947,8 @@ body.show-usd .p-usd { display: inline; }
   cursor: pointer;
   transition: color var(--transition), background var(--transition),
               border-color var(--transition);
+  min-height: 44px;
+  white-space: nowrap;
 }
 
 .pricing-tab:hover {
@@ -777,7 +963,7 @@ body.show-usd .p-usd { display: inline; }
 }
 
 .pricing-tab i {
-  font-size: 0.85rem;
+  font-size: clamp(0.75rem, 1.5vw, 0.9rem);
 }
 
 .pricing-plans {
@@ -838,14 +1024,14 @@ body.show-usd .p-usd { display: inline; }
 }
 
 .plan-name {
-  font-size: 1.05rem;
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
   margin-bottom: 14px;
   color: var(--text);
 }
 
 .plan-price {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.9rem;
+  font-size: clamp(1.5rem, 3vw, 1.9rem);
   font-weight: 800;
   color: var(--gold);
   margin-bottom: 24px;
@@ -854,7 +1040,7 @@ body.show-usd .p-usd { display: inline; }
 
 .plan-price span,
 .plan-price small {
-  font-size: 0.75rem;
+  font-size: clamp(0.65rem, 1.2vw, 0.8rem);
   font-weight: 500;
   color: var(--text-muted);
   margin-left: 4px;
@@ -872,7 +1058,7 @@ body.show-usd .p-usd { display: inline; }
   display: flex;
   align-items: flex-start;
   gap: 9px;
-  font-size: 0.85rem;
+  font-size: clamp(0.8rem, 1.5vw, 0.9rem);
   color: var(--text-muted);
   padding: 5px 0;
   line-height: 1.4;
@@ -880,7 +1066,7 @@ body.show-usd .p-usd { display: inline; }
 
 .plan-features li i {
   color: var(--gold);
-  font-size: 0.75rem;
+  font-size: clamp(0.65rem, 1.2vw, 0.8rem);
   flex-shrink: 0;
   margin-top: 3px;
 }
@@ -888,15 +1074,19 @@ body.show-usd .p-usd { display: inline; }
 .btn-plan {
   display: block;
   text-align: center;
-  padding: 12px;
+  padding: clamp(10px, 2vw, 12px);
   border-radius: var(--radius-sm);
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 600;
-  font-size: 0.88rem;
+  font-size: clamp(0.8rem, 1.5vw, 0.9rem);
   background: var(--gold-glow);
   color: var(--gold);
   border: 1.5px solid var(--gold);
   transition: background var(--transition), color var(--transition), transform var(--transition);
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn-plan:hover {
@@ -935,21 +1125,23 @@ body.show-usd .p-usd { display: inline; }
 
 .pricing-other-inner p {
   color: var(--text-muted);
-  font-size: 0.92rem;
+  font-size: clamp(0.85rem, 1.8vw, 0.95rem);
 }
 
 .btn-other {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 13px 26px;
+  padding: clamp(10px, 2vw, 13px) clamp(20px, 3vw, 26px);
   border-radius: 999px;
   background: var(--wa);
   color: #fff;
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: clamp(0.85rem, 1.8vw, 0.95rem);
   transition: background var(--transition), transform var(--transition);
+  min-height: 44px;
+  white-space: nowrap;
 }
 
 .btn-other:hover {
@@ -978,16 +1170,14 @@ body.show-usd .p-usd { display: inline; }
 }
 
 @media (max-width: 480px) {
-  .hero-ctas {
-    flex-direction: column;
-    align-items: center;
+  .pricing-plans {
+    max-width: 100%;
+    padding: 0 16px;
   }
 
-  .btn-hero-primary,
-  .btn-hero-secondary {
-    width: 100%;
-    max-width: 240px;
-    text-align: center;
+  .pricing-other-inner {
+    max-width: 100%;
+    padding: clamp(16px, 3vw, 24px);
   }
 }
 
@@ -1008,14 +1198,14 @@ body.show-usd .p-usd { display: inline; }
 
 .modal-extras-header h3 {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 4vw, 1.6rem);
   font-weight: 800;
   color: var(--text);
   margin-bottom: 6px;
 }
 
 .modal-sub {
-  font-size: 0.88rem;
+  font-size: clamp(0.8rem, 1.5vw, 0.9rem);
   color: var(--text-muted);
 }
 
@@ -1033,16 +1223,20 @@ body.show-usd .p-usd { display: inline; }
   display: flex;
   align-items: center;
   gap: 7px;
-  padding: 9px 16px;
+  padding: clamp(7px, 1.5vw, 9px) clamp(12px, 2vw, 16px);
   border-radius: var(--radius-sm);
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.84rem;
+  font-size: clamp(0.75rem, 1.5vw, 0.88rem);
   font-weight: 600;
   color: var(--text-muted);
   background: transparent;
   border: 1.5px solid transparent;
   transition: color var(--transition), background var(--transition), border-color var(--transition);
   cursor: pointer;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
 }
 
 .extras-tab:hover {
@@ -1058,7 +1252,7 @@ body.show-usd .p-usd { display: inline; }
 }
 
 .extras-tab i {
-  font-size: 0.8rem;
+  font-size: clamp(0.7rem, 1.5vw, 0.85rem);
 }
 
 .extras-plans {
