@@ -1566,7 +1566,7 @@
 
 @media (min-width: 768px) {
   .carousel-track > .portfolio-item {
-    flex: 0 0 calc(25% - 9px);
+    flex: 0 0 calc(20% - 10px);
     min-width: auto;
   }
 }
