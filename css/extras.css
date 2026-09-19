@@ -1523,7 +1523,13 @@
 .carousel-container {
   position: relative;
   padding: 0;
-  overflow: hidden;
+  overflow: visible;
+}
+
+@media (max-width: 767px) {
+  .carousel-container {
+    padding-bottom: 80px;
+  }
 }
 
 .carousel-track {
@@ -1614,6 +1620,25 @@
 
 .carousel-next {
   right: 8px;
+}
+
+/* Mobile: Move arrows to bottom */
+@media (max-width: 767px) {
+  .carousel-arrow {
+    top: auto;
+    bottom: -60px;
+    transform: translateY(0);
+  }
+
+  .carousel-prev {
+    left: calc(50% - 60px);
+    right: auto;
+  }
+
+  .carousel-next {
+    right: auto;
+    left: calc(50% + 20px);
+  }
 }
 
 /* Tarjeta del proyecto */
