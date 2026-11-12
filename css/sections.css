@@ -630,8 +630,8 @@
    ============================================================ */
 .contact-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
   max-width: 100%;
   margin: 0 auto;
   padding: 0 16px;
@@ -673,14 +673,14 @@
 }
 
 .contact-icon {
-  width: 54px;
-  height: 54px;
+  width: 60px;
+  height: 60px;
   background: var(--gold-glow);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.45rem;
+  font-size: 1.6rem;
   color: var(--gold);
   margin-bottom: 2px;
   transition: background var(--transition);
@@ -696,6 +696,13 @@
 .contact-hint {
   font-size: clamp(0.7rem, 1.5vw, 0.8rem);
   color: var(--text-muted);
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 479px) {
+  .contact-card {
+    padding: 28px 12px 24px;
+  }
 }
 
 /* ============================================================

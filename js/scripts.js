@@ -537,7 +537,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ============================================================
   document.getElementById('share-wa')?.addEventListener('click', () => {
     window.open(
-      `https://wa.me/?text=${encodeURIComponent('Mirá este sitio web: ' + location.origin)}`,
+      `https://wa.me/?text=${encodeURIComponent('Mira este sitio web: ' + location.origin)}`,
       '_blank'
     );
   });
