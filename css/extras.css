@@ -6,20 +6,24 @@
   min-height: 260px;
 }
 
+/* Ambas caras comparten la misma celda del grid: la tarjeta crece según la
+   cara más alta, así el contenido de atrás nunca se desborda de la tarjeta. */
 .card-inner {
   position: relative;
   height: 100%;
+  display: grid;
 }
 
 /* Cara delantera */
 .card-front {
+  grid-area: 1 / 1;
   transition: opacity 0.28s ease, transform 0.28s ease;
 }
 
 /* Cara trasera — oculta por defecto */
 .card-back {
-  position: absolute;
-  inset: -32px -28px;       /* compensa el padding del service-card */
+  grid-area: 1 / 1;
+  margin: -32px -28px;      /* compensa el padding del service-card */
   opacity: 0;
   pointer-events: none;
   transform: scale(0.97) translateY(6px);
@@ -1097,6 +1101,12 @@
 .service-wa:hover {
   background: rgba(var(--wa-rgb), 0.1);
   border-color: var(--wa);
+}
+
+/* En la cara trasera: botón anclado abajo y sin estirarse a todo el ancho */
+.card-back .service-wa {
+  align-self: flex-start;
+  margin-top: auto;
 }
 
 /* ============================================================
