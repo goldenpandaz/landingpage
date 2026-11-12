@@ -111,7 +111,7 @@
   align-items: center;
   justify-content: center;
   font-size: 0.88rem;
-  color: #FFFFFF;
+  color: var(--text);
   transition: color var(--transition), background var(--transition);
 }
 
@@ -315,7 +315,7 @@
   align-items: center;
   gap: clamp(4px, 1vw, 6px);
   padding: clamp(8px, 1.5vw, 10px) clamp(12px, 2vw, 16px);
-  color: #FFFFFF;
+  color: var(--text);
   text-decoration: none;
   font-weight: 500;
   font-size: clamp(0.75rem, 1.5vw, 0.88rem);
@@ -332,6 +332,14 @@
 .navbar-bottom .nav-item.active {
   background: rgba(var(--gold-rgb), 0.12);
   color: var(--gold);
+}
+
+/* Modo claro: el dorado claro (--gold) no contrasta sobre fondo claro */
+:root.light .navbar-bottom .nav-item:hover,
+:root.light .navbar-bottom .nav-item.active,
+:root.light .btn-palette:hover,
+:root.light .btn-theme:hover {
+  color: var(--gold-dark);
 }
 
 .navbar-bottom .nav-item i {
