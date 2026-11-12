@@ -35,6 +35,7 @@
   </script>
 
   <link rel="icon" type="image/png" href="Image/Icono.png">
+  <link rel="preload" as="image" href="Image/inicio/poster_inicio.jpg" fetchpriority="high">
   <link rel="preload" as="image" href="Image/Logo_Color.png">
   <link rel="dns-prefetch" href="https://fonts.googleapis.com">
   <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
@@ -116,10 +117,19 @@
 
   <!-- HERO -->
   <section id="inicio" class="hero">
-    <video class="hero-carousel" autoplay muted loop playsinline>
-      <source src="Image/inicio/clip_inicio.mp4" type="video/mp4">
-      Tu navegador no soporta videos HTML5.
-    </video>
+    <video class="hero-carousel" autoplay muted loop playsinline preload="auto" poster="Image/inicio/poster_inicio.jpg" aria-hidden="true"></video>
+    <script>
+      // Elige la fuente según pantalla/conexión ANTES de que el navegador descargue nada.
+      (function () {
+        var v = document.currentScript.previousElementSibling;
+        var c = navigator.connection || {};
+        var small = matchMedia('(max-width: 767px)').matches || c.saveData || /(^|-)2g$/.test(c.effectiveType || '');
+        var webm = !!v.canPlayType && v.canPlayType('video/webm; codecs="vp9"') === 'probably';
+        v.src = small ? 'Image/inicio/clip_inicio_720.mp4'
+              : webm  ? 'Image/inicio/clip_inicio_1080.webm'
+                      : 'Image/inicio/clip_inicio_1080.mp4';
+      })();
+    </script>
 
     <!-- HERO CAROUSEL IMAGES [COMENTADO — Lógica de carrusel conservada para referencia]
     <div class="hero-carousel">
@@ -802,7 +812,7 @@
         </button>
       </div>
     </div>
-    <p class="footer-credits">© 2025 <span class="gold">Juan Camilo Zarta</span> — Software Developer</p>
+    <p class="footer-credits">© 2025 <span class="gold">Juan Camilo Zarta Campo</span> — Ingeniero de Sistemas · Software Developer</p>
   </footer>
 
   <!-- MODAL EXTRAS — MÁS SERVICIOS PRICING -->
