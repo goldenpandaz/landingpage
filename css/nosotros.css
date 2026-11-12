@@ -58,6 +58,22 @@
   }
 }
 
+/* 2 columnas: la tarjeta huérfana se centra en lugar de quedar a la izquierda */
+@media (min-width: 480px) and (max-width: 1023px) {
+  .team-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - 12px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .team-grid {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1080px;
+  }
+}
+
 .team-card {
   background: var(--surface);
   border: 1px solid var(--border);
