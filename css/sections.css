@@ -1141,19 +1141,39 @@ body.show-usd .p-usd { display: inline; }
   gap: 10px;
   padding: clamp(10px, 2vw, 13px) clamp(20px, 3vw, 26px);
   border-radius: 999px;
-  background: var(--wa);
+  background: linear-gradient(135deg, #0d0d0d, #2b2b2b);
   color: #fff;
+  border: 1.5px solid var(--gold);
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 600;
   font-size: clamp(0.85rem, 1.8vw, 0.95rem);
-  transition: background var(--transition), transform var(--transition);
+  transition: background var(--transition), color var(--transition),
+              border-color var(--transition), box-shadow var(--transition),
+              transform var(--transition);
   min-height: 44px;
   white-space: nowrap;
 }
 
+.btn-other i {
+  color: var(--gold);
+  transition: color var(--transition);
+}
+
 .btn-other:hover {
-  background: var(--wa-hover);
+  background: linear-gradient(135deg, #1a1a1a, #3a3a3a);
+  color: var(--gold-light);
+  border-color: var(--gold-light);
+  box-shadow: 0 0 0 3px rgba(var(--gold-rgb), 0.22), 0 8px 24px rgba(var(--gold-rgb), 0.18);
   transform: translateY(-2px);
+}
+
+.btn-other:hover i {
+  color: var(--gold-light);
+}
+
+.btn-other:focus-visible {
+  outline: 2px solid var(--gold-light);
+  outline-offset: 3px;
 }
 
 /* Responsive Pricing */
