@@ -1,13 +1,16 @@
-const CACHE = 'gp-v2';
+const CACHE = 'gp-v3';
 const ASSETS = [
   '/',
   '/index.html',
+  '/html/servicios.html',
   '/css/style.css',
   '/css/navbar.css',
   '/css/sections.css',
+  '/css/servicios.css',
   '/css/footer.css',
   '/css/extras.css',
   '/js/scripts.js',
+  '/js/servicios.js',
   '/Image/Logo_Color.png',
   '/Image/Icono.png',
 ];

@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="es" data-palette="deep-space">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servicios y precios — Golden Panda</title>
+  <meta name="description" content="Landings, webs a medida, tienda, invitaciones digitales, apps y sistemas por suscripción. Planes y precios de Golden Panda en pesos colombianos.">
+  <link rel="icon" type="image/png" href="../Image/Icono.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/sections.css">
+  <link rel="stylesheet" href="../css/servicios.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"name":"Inicio","item":"https://goldenpanda.dev/"},
+      {"@type":"ListItem","position":2,"name":"Servicios y precios","item":"https://goldenpanda.dev/html/servicios.html"}
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <a href="../index.html" class="navbar-brand">
+      <img src="../Image/Icono.png" alt="Golden Panda" class="navbar-icon">
+      <span class="navbar-name">Golden Panda</span>
+    </a>
+    <ul class="navbar-links">
+      <li><a href="../index.html"><i class="fas fa-arrow-left"></i> Volver</a></li>
+    </ul>
+    <div class="navbar-controls">
+      <button class="btn-palette" id="btn-palette" title="Cambiar paleta" aria-label="Cambiar paleta">
+        <i class="fas fa-palette"></i>
+      </button>
+      <button class="btn-theme" id="btn-theme" title="Modo claro/oscuro" aria-label="Cambiar modo">
+        <i class="fas fa-moon" id="theme-icon"></i>
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobile-menu">
+    <ul>
+      <li><a href="../index.html"><i class="fas fa-arrow-left"></i> Volver al inicio</a></li>
+    </ul>
+  </div>
+  <div class="mobile-overlay" id="mobile-overlay"></div>
+
+  <main class="section svc-page">
+    <div class="section-header">
+      <h1 class="section-title">Servicios y precios</h1>
+      <p class="section-sub">Precios en pesos colombianos · Consulta sin compromiso · Respuesta en menos de 24 horas</p>
+    </div>
+
+    <!-- TABS -->
+    <div class="svc-tabs" role="tablist" aria-label="Servicios">
+      <button class="svc-tab active" role="tab" data-panel="landings" aria-selected="true"><i class="fas fa-globe"></i><span>Landings</span></button>
+      <button class="svc-tab" role="tab" data-panel="web" aria-selected="false"><i class="fas fa-pen-ruler"></i><span>Web y tienda</span></button>
+      <button class="svc-tab" role="tab" data-panel="invitaciones" aria-selected="false"><i class="fas fa-envelope"></i><span>Invitaciones</span></button>
+      <button class="svc-tab" role="tab" data-panel="apps" aria-selected="false"><i class="fas fa-laptop-code"></i><span>Apps a medida</span></button>
+      <button class="svc-tab" role="tab" data-panel="saas" aria-selected="false"><i class="fas fa-cloud"></i><span>Apps por suscripción</span></button>
+      <button class="svc-tab" role="tab" data-panel="mantenimiento" aria-selected="false"><i class="fas fa-screwdriver-wrench"></i><span>Mantenimiento</span></button>
+    </div>
+
+    <!-- 1. LANDINGS -->
+    <section class="svc-panel active" id="landings" role="tabpanel">
+      <p class="svc-intro">Una página clara, rápida y lista para vender, hecha para el rubro de tu negocio.</p>
+      <div class="svc-plans">
+        <article class="plan-card">
+          <h4 class="plan-name">Express</h4>
+          <div class="plan-price">$247.500<small>COP</small></div>
+          <ul class="plan-features">
+            <li><i class="fas fa-check"></i>4 secciones</li>
+            <li><i class="fas fa-check"></i>Botón de WhatsApp, mapa y formulario</li>
+            <li><i class="fas fa-check"></i>Adaptada a celular</li>
+            <li><i class="fas fa-check"></i>Publicación y conexión de tu dominio</li>
+            <li><i class="fas fa-check"></i>1 ronda de ajustes</li>
+            <li><i class="fas fa-check"></i>Entrega en 24 a 48 horas</li>
+          </ul>
+        </article>
+        <article class="plan-card featured">
+          <span class="plan-badge">Recomendado</span>
+          <h4 class="plan-name">Pro</h4>
+          <div class="plan-price">$367.400<small>COP</small></div>
+          <ul class="plan-features">
+            <li><i class="fas fa-check"></i>Todo lo del Express</li>
+            <li><i class="fas fa-check"></i>Hasta 8 secciones</li>
+            <li><i class="fas fa-check"></i>Galería y testimonios</li>
+            <li><i class="fas fa-check"></i>SEO técnico básico y analítica</li>
+            <li><i class="fas fa-check"></i>2 rondas de ajustes</li>
+            <li><i class="fas fa-check"></i>1 mes de soporte (errores)</li>
+            <li><i class="fas fa-check"></i>Entrega en 48 a 72 horas</li>
+          </ul>
+        </article>
+        <article class="plan-card">
+          <h4 class="plan-name">Premium</h4>
+          <div class="plan-price">$499.500<small>COP</small></div>
+          <ul class="plan-features">
+            <li><i class="fas fa-check"></i>Todo lo del Pro</li>
+            <li><i class="fas fa-check"></i>Hasta 3 páginas</li>
+            <li><i class="fas fa-check"></i>Botón «Reservar por WhatsApp» con mensaje ya escrito</li>
+            <li><i class="fas fa-check"></i>3 rondas de ajustes</li>
+            <li><i class="fas fa-check"></i>3 meses de soporte (errores y 1 cambio menor al mes)</li>
+            <li><i class="fas fa-check"></i>Entrega en 3 a 5 días</li>
+          </ul>
+        </article>
+      </div>
+
+      <p class="svc-label">Con demo lista para tu rubro</p>
+      <div class="svc-chips">
+        <a href="https://goldenpandaz.github.io/demo-abogado-landing/" target="_blank" rel="noopener">Abogados</a>
+        <a href="https://goldenpandaz.github.io/demo-barberia-landing/" target="_blank" rel="noopener">Barberías</a>
+        <a href="https://goldenpandaz.github.io/demo-ferreteria-landing/" target="_blank" rel="noopener">Ferreterías</a>
+        <a href="https://goldenpandaz.github.io/demo-gimnasio-landing/" target="_blank" rel="noopener">Gimnasios</a>
+        <a href="https://goldenpandaz.github.io/demo-odontologia-landing/" target="_blank" rel="noopener">Odontología</a>
+        <a href="https://goldenpandaz.github.io/demo-restaurante-landing/" target="_blank" rel="noopener">Restaurantes</a>
+        <a href="https://goldenpandaz.github.io/demo-spa-landing/" target="_blank" rel="noopener">Spas</a>
+        <a href="https://goldenpandaz.github.io/demo-veterinaria-landing/" target="_blank" rel="noopener">Veterinarias</a>
+      </div>
+      <p class="svc-note">¿Tu rubro no está en la lista? Funciona igual para cualquier negocio de servicios o de venta local. El plazo cuenta desde que nos envías los textos y las fotos. Textos, fotos, logo, ficha de Google Business, redacción y pagos o reservas en línea no están incluidos, pero se pueden sumar con costo aparte. El dominio y el hosting tampoco entran en el precio.</p>
+
+      <div class="svc-cta">
+        <a href="https://wa.me/573128622945?text=Hola%2C%20me%20interesa%20una%20Landing%20Page%20para%20mi%20negocio" target="_blank" rel="noopener" class="btn-other"><i class="fab fa-whatsapp"></i> Cotizar mi landing</a>
+      </div>
+    </section>
+
+    <!-- 2. WEB A MEDIDA Y TIENDA -->
+    <section class="svc-panel" id="web" role="tabpanel">
+      <p class="svc-intro">Cuando necesitas más que una landing: un sitio con varias páginas, o una tienda para vender en línea.</p>
+      <div class="svc-plans svc-plans--2">
+        <article class="plan-card">
+          <h4 class="plan-name">Web a medida</h4>
+          <div class="plan-price"><span class="svc-from">Desde</span> $599.500<small>COP</small></div>
+          <ul class="plan-features">
+            <li><i class="fas fa-check"></i>4 páginas, hasta 4 secciones cada una</li>
+            <li><i class="fas fa-check"></i>Diseño único para tu marca</li>
+            <li><i class="fas fa-check"></i>Publicación y conexión de tu dominio</li>
+            <li><i class="fas fa-check"></i>2 rondas de ajustes</li>
+            <li><i class="fas fa-check"></i>Páginas, secciones y funciones extra: multi-idioma, blog, buscador, calculadoras e integraciones</li>
+          </ul>
+          <p class="svc-small">Te damos un rango según el alcance y cerramos el precio final al ver tu proyecto.</p>
+        </article>
+        <article class="plan-card featured">
+          <span class="plan-badge">Precio fijo</span>
+          <h4 class="plan-name">Tienda propia</h4>
+          <div class="plan-price">$947.500<small>COP</small></div>
+          <ul class="plan-features">
+            <li><i class="fas fa-check"></i>Catálogo con búsqueda y filtros</li>
+            <li><i class="fas fa-check"></i>Cuentas de cliente</li>
+            <li><i class="fas fa-check"></i>Carrito, checkout y pedidos con control de stock</li>
+            <li><i class="fas fa-check"></i>Panel del dueño: productos, fotos, stock y pedidos</li>
+            <li><i class="fas fa-check"></i>Un negocio, diseño propio</li>
+            <li><i class="fas fa-check"></i>Extras: reseñas de compradores y pago en línea con Wompi</li>
+          </ul>
+        </article>
+      </div>
+      <p class="svc-note">Los extras se cotizan aparte. El dominio y el hosting no entran en el precio. Si necesitas inicio de sesión, datos que cambian o reservas dentro de tu web, mira las apps a medida.</p>
+
+      <div class="svc-cta">
+        <a href="https://wa.me/573128622945?text=Hola%2C%20me%20interesa%20cotizar%20una%20web%20a%20medida%20o%20una%20tienda" target="_blank" rel="noopener" class="btn-other"><i class="fab fa-whatsapp"></i> Cotizar mi web o tienda</a>
+      </div>
+    </section>
+
+    <!-- 3. INVITACIONES -->
+    <section class="svc-panel" id="invitaciones" role="tabpanel">
+      <p class="svc-intro">Un solo precio para todos los eventos: boda, XV años, cumpleaños, bautizo, comunión, grado y eventos corporativos. Pago único, invitados ilimitados.</p>
+      <div class="svc-plans">
+        <article class="plan-card">
+          <h4 class="plan-name">Clásico · PDF</h4>
+          <div class="plan-price">$39.500<small>COP</small></div>
+          <ul class="plan-features">
+            <li><i class="fas fa-check"></i>Portada, mensaje e itinerario</li>
+            <li><i class="fas fa-check"></i>2 fotos</li>
+            <li><i class="fas fa-check"></i>Botón para confirmar por WhatsApp</li>
+            <li><i class="fas fa-check"></i>Mapa por enlace</li>
+            <li><i class="fas fa-check"></i>Cambio de colores</li>
+            <li><i class="fas fa-check"></i>Cambios de fecha, hora o lugar durante 1 semana</li>
+            <li><i class="fas fa-check"></i>Entrega en 24 horas</li>
+          </ul>
+        </article>
+        <article class="plan-card featured">
+          <span class="plan-badge">Más elegido</span>
+          <h4 class="plan-name">Estándar · Web</h4>
+          <div class="plan-price">$89.400<small>COP</small></div>
+          <ul class="plan-features">
+            <li><i class="fas fa-check"></i>Todo lo del Clásico, ahora como página web</li>
+            <li><i class="fas fa-check"></i>Hasta 6 fotos</li>
+            <li><i class="fas fa-check"></i>Personas del evento: padrinos, anfitriones o familia</li>
+            <li><i class="fas fa-check"></i>Cuenta regresiva y música de fondo</li>
+            <li><i class="fas fa-check"></i>Animaciones decorativas</li>
+            <li><i class="fas fa-check"></i>Mapa dentro de la página</li>
+            <li><i class="fas fa-check"></i>Diseño personalizado</li>
+            <li><i class="fas fa-check"></i>Entrega en 1 a 2 días</li>
+          </ul>
+        </article>
+        <article class="plan-card">
+          <h4 class="plan-name">Premium · Web completa</h4>
+          <div class="plan-price">$169.500<small>COP</small></div>
+          <ul class="plan-features">
+            <li><i class="fas fa-check"></i>Todo lo del Estándar</li>
+            <li><i class="fas fa-check"></i>Fotos ilimitadas en galería o carrusel</li>
+            <li><i class="fas fa-check"></i>QR de álbum de fotos</li>
+            <li><i class="fas fa-check"></i>Obsequios o lluvia de sobres</li>
+            <li><i class="fas fa-check"></i>Canciones para el DJ</li>
+            <li><i class="fas fa-check"></i>Vestimenta</li>
+            <li><i class="fas fa-check"></i>Sección propia del evento</li>
+            <li><i class="fas fa-check"></i>Rediseño a tu tema</li>
+            <li><i class="fas fa-check"></i>Cambios hasta el día del evento</li>
+            <li><i class="fas fa-check"></i>Entrega en 2 a 4 días</li>
+          </ul>
+        </article>
+      </div>
+
+      <p class="svc-label">Para todo tipo de evento</p>
+      <div class="svc-chips svc-chips--static">
+        <span>Boda</span><span>XV años</span><span>Cumpleaños</span><span>Bautizo y baby shower</span><span>Comunión</span><span>Grado</span><span>Corporativo</span><span>Y más</span>
+      </div>
+      <p class="svc-note">Algunas secciones aplican según el evento. Los precios no incluyen dominio propio.</p>
+
+      <div class="svc-cta">
+        <a href="https://wa.me/573128622945?text=Hola%2C%20me%20interesa%20una%20Invitaci%C3%B3n%20Digital" target="_blank" rel="noopener" class="btn-other"><i class="fab fa-whatsapp"></i> Pedir mi invitación</a>
+      </div>
+    </section>
+
+    <!-- 4. APPS A MEDIDA -->
+    <section class="svc-panel" id="apps" role="tabpanel">
+      <p class="svc-intro">Aplicaciones web hechas para tus procesos: usuarios, datos que se guardan y cambian, reservas y pagos.</p>
+      <div class="svc-plans svc-plans--2">
+        <article class="plan-card">
+          <h4 class="plan-name">App sencilla</h4>
+          <div class="plan-price"><span class="svc-from">Desde</span> $699.000<small>COP</small></div>
+          <ul class="plan-features">
+            <li><i class="fas fa-check"></i>Inicio de sesión</li>
+            <li><i class="fas fa-check"></i>Base de datos</li>
+            <li><i class="fas fa-check"></i>Pantallas principales</li>
+            <li><i class="fas fa-check"></i>Adaptada a celular e instalable (PWA)</li>
+            <li><i class="fas fa-check"></i>Publicada y lista para usar</li>
+          </ul>
+        </article>
+        <article class="plan-card featured">
+          <span class="plan-badge">Más potencia</span>
+          <h4 class="plan-name">App completa</h4>
+          <div class="plan-price"><span class="svc-from">Desde</span> $999.500<small>COP</small></div>
+          <ul class="plan-features">
+            <li><i class="fas fa-check"></i>Todo lo de la app sencilla</li>
+            <li><i class="fas fa-check"></i>API propia</li>
+            <li><i class="fas fa-check"></i>Roles de usuario</li>
+            <li><i class="fas fa-check"></i>Panel de administración</li>
+          </ul>
+        </article>
+      </div>
+      <p class="svc-note">El precio final depende de los módulos que necesites (reportes, notificaciones, pagos, integraciones). Te damos un rango y cerramos el valor al definir el alcance contigo.</p>
+
+      <div class="svc-cta">
+        <a href="https://wa.me/573128622945?text=Hola%2C%20me%20interesa%20cotizar%20una%20app%20a%20medida" target="_blank" rel="noopener" class="btn-other"><i class="fab fa-whatsapp"></i> Cotizar mi app</a>
+      </div>
+    </section>
+
+    <!-- 5. APPS POR SUSCRIPCIÓN -->
+    <section class="svc-panel" id="saas" role="tabpanel">
+      <p class="svc-intro">Sistemas listos para usar, con una mensualidad. Sin pagar desarrollo.</p>
+      <p class="svc-banner"><i class="fas fa-tag"></i> <strong>Precio de lanzamiento:</strong> se mantiene mientras seas cliente. Disponible para los primeros 50 clientes de cada app.</p>
+      <div class="svc-plans">
+        <article class="plan-card featured">
+          <span class="svc-status svc-status--live">Disponible</span>
+          <h4 class="plan-name">AgendaCo</h4>
+          <p class="svc-tagline">Reservas en línea para barberías, salones, spas, consultorios y veterinarias.</p>
+          <div class="plan-price">$34.900<small>/mes</small></div>
+          <ul class="plan-features">
+            <li><i class="fas fa-check"></i>Tus clientes reservan solos, a toda hora</li>
+            <li><i class="fas fa-check"></i>Equipo con horario propio</li>
+            <li><i class="fas fa-check"></i>Servicios, horarios y reseñas</li>
+            <li><i class="fas fa-check"></i>Estadísticas de tu negocio</li>
+            <li><i class="fas fa-check"></i>Semestral: $177.900</li>
+            <li><i class="fas fa-check"></i><strong>2 meses gratis</strong> para probar</li>
+          </ul>
+          <a href="https://wa.me/573128622945?text=Hola%2C%20me%20interesa%20AgendaCo" target="_blank" rel="noopener" class="btn-plan">Empezar prueba gratis</a>
+        </article>
+
+        <article class="plan-card">
+          <span class="svc-status svc-status--soon">Próximamente</span>
+          <h4 class="plan-name">GoldLex</h4>
+          <p class="svc-tagline">Gestión para bufetes de abogados: afiliados, cuotas, pagos, asesorías, procesos y documentos.</p>
+          <div class="plan-price">$99.900<small>/mes por bufete</small></div>
+          <ul class="plan-features">
+            <li><i class="fas fa-check"></i>Semestral: $509.900</li>
+            <li><i class="fas fa-check"></i>1 mes gratis para probar</li>
+          </ul>
+          <a href="https://wa.me/573128622945?text=Hola%2C%20quiero%20unirme%20a%20la%20lista%20de%20espera%20de%20GoldLex" target="_blank" rel="noopener" class="btn-plan">Unirme a la lista de espera</a>
+        </article>
+
+        <article class="plan-card">
+          <span class="svc-status svc-status--soon">Próximamente</span>
+          <h4 class="plan-name">ReZto Bar</h4>
+          <p class="svc-tagline">Para restaurantes y bares: menú, pedidos por WhatsApp, reservas y reseñas.</p>
+          <div class="plan-price"><span class="svc-from">Desde</span> $39.900<small>/mes</small></div>
+          <ul class="plan-features">
+            <li><i class="fas fa-check"></i>Básico: $39.900/mes (semestral $203.900)</li>
+            <li><i class="fas fa-check"></i>Completo con POS (mesas, comandas, cocina y caja): $79.900/mes (semestral $407.900)</li>
+            <li><i class="fas fa-check"></i>1 mes gratis para probar</li>
+          </ul>
+          <a href="https://wa.me/573128622945?text=Hola%2C%20quiero%20unirme%20a%20la%20lista%20de%20espera%20de%20ReZto%20Bar" target="_blank" rel="noopener" class="btn-plan">Unirme a la lista de espera</a>
+        </article>
+
+        <article class="plan-card">
+          <span class="svc-status svc-status--soon">Próximamente</span>
+          <h4 class="plan-name">Protocol Events</h4>
+          <p class="svc-tagline">Para salones de eventos: coordina equipo, eventos, tareas e inventario de desmontaje.</p>
+          <div class="plan-price">$49.900<small>/mes por salón</small></div>
+          <ul class="plan-features">
+            <li><i class="fas fa-check"></i>Semestral: $254.900</li>
+            <li><i class="fas fa-check"></i>1 mes gratis para probar</li>
+          </ul>
+          <a href="https://wa.me/573128622945?text=Hola%2C%20quiero%20unirme%20a%20la%20lista%20de%20espera%20de%20Protocol%20Events" target="_blank" rel="noopener" class="btn-plan">Unirme a la lista de espera</a>
+        </article>
+
+        <article class="plan-card">
+          <span class="svc-status svc-status--soon">Próximamente</span>
+          <h4 class="plan-name">Bank</h4>
+          <p class="svc-tagline">Control de billar: mesas, tiempo, consumos, cobro y cierre de turno.</p>
+          <div class="plan-price">$39.900<small>/mes por billar</small></div>
+          <ul class="plan-features">
+            <li><i class="fas fa-check"></i>Semestral: $203.900</li>
+            <li><i class="fas fa-check"></i>1 mes gratis para probar</li>
+          </ul>
+          <a href="https://wa.me/573128622945?text=Hola%2C%20quiero%20unirme%20a%20la%20lista%20de%20espera%20de%20Bank%20(control%20de%20billar)" target="_blank" rel="noopener" class="btn-plan">Unirme a la lista de espera</a>
+        </article>
+
+        <article class="plan-card">
+          <span class="svc-status svc-status--soon">Próximamente</span>
+          <h4 class="plan-name">Ecommer-Z</h4>
+          <p class="svc-tagline">Tu tienda en línea por suscripción: catálogo, carrito, pedidos y reseñas.</p>
+          <div class="plan-price">$44.900<small>/mes por tienda</small></div>
+          <ul class="plan-features">
+            <li><i class="fas fa-check"></i>Semestral: $228.900</li>
+            <li><i class="fas fa-check"></i>1 mes gratis para probar</li>
+          </ul>
+          <a href="https://wa.me/573128622945?text=Hola%2C%20quiero%20unirme%20a%20la%20lista%20de%20espera%20de%20Ecommer-Z" target="_blank" rel="noopener" class="btn-plan">Unirme a la lista de espera</a>
+        </article>
+      </div>
+      <p class="svc-note">El semestral equivale a 6 meses con descuento.</p>
+    </section>
+
+    <!-- 6. MANTENIMIENTO -->
+    <section class="svc-panel" id="mantenimiento" role="tabpanel">
+      <p class="svc-intro">Mensualidad opcional para que tu web o tu sistema siga arriba, actualizado y con alguien que responde.</p>
+
+      <p class="svc-label">Webs y landings</p>
+      <div class="svc-plans svc-plans--2">
+        <article class="plan-card">
+          <h4 class="plan-name">Básico</h4>
+          <div class="plan-price">$59.500<small>/mes</small></div>
+          <ul class="plan-features">
+            <li><i class="fas fa-check"></i>Vigilamos que tu web esté arriba</li>
+            <li><i class="fas fa-check"></i>Corrección de errores</li>
+            <li><i class="fas fa-check"></i>1 cambio menor al mes</li>
+            <li><i class="fas fa-check"></i>Respuesta en 48 horas</li>
+          </ul>
+        </article>
+        <article class="plan-card featured">
+          <span class="plan-badge">Más completo</span>
+          <h4 class="plan-name">Plus</h4>
+          <div class="plan-price">$112.400<small>/mes</small></div>
+          <ul class="plan-features">
+            <li><i class="fas fa-check"></i>Todo lo del Básico</li>
+            <li><i class="fas fa-check"></i>Hasta 3 cambios menores al mes</li>
+            <li><i class="fas fa-check"></i>Informe mensual de visitas</li>
+            <li><i class="fas fa-check"></i>Respuesta en 24 horas</li>
+          </ul>
+        </article>
+      </div>
+
+      <p class="svc-label">Tiendas y apps</p>
+      <div class="svc-plans svc-plans--2">
+        <article class="plan-card">
+          <h4 class="plan-name">Básico</h4>
+          <div class="plan-price">$99.500<small>/mes</small></div>
+          <ul class="plan-features">
+            <li><i class="fas fa-check"></i>Vigilancia de tu tienda o app y su base de datos</li>
+            <li><i class="fas fa-check"></i>Corrección de errores</li>
+            <li><i class="fas fa-check"></i>1 cambio menor al mes</li>
+            <li><i class="fas fa-check"></i>Respuesta en 48 horas</li>
+          </ul>
+        </article>
+        <article class="plan-card featured">
+          <span class="plan-badge">Más completo</span>
+          <h4 class="plan-name">Plus</h4>
+          <div class="plan-price">$169.500<small>/mes</small></div>
+          <ul class="plan-features">
+            <li><i class="fas fa-check"></i>Todo lo del Básico</li>
+            <li><i class="fas fa-check"></i>Hasta 3 cambios menores al mes</li>
+            <li><i class="fas fa-check"></i>Informe mensual de uso</li>
+            <li><i class="fas fa-check"></i>Respuesta en 24 horas</li>
+          </ul>
+        </article>
+      </div>
+      <p class="svc-note">Un cambio menor es modificar algo que ya existe: un texto, una foto, un horario o un precio. Una sección nueva, una página nueva o un rediseño se cotizan aparte.</p>
+
+      <div class="svc-cta">
+        <a href="https://wa.me/573128622945?text=Hola%2C%20me%20interesa%20el%20mantenimiento%20mensual" target="_blank" rel="noopener" class="btn-other"><i class="fab fa-whatsapp"></i> Consultar mantenimiento</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <img src="../Image/Logo_Color.png" alt="Golden Panda" class="footer-logo footer-logo-dark" loading="lazy">
+    <img src="../Image/LOGO (1).png"   alt="Golden Panda" class="footer-logo footer-logo-light" loading="lazy">
+    <div class="social-links" aria-label="Redes sociales de Golden Panda">
+      <a href="https://www.instagram.com/golden_panda_6/" target="_blank" rel="noopener" aria-label="Instagram de Golden Panda"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/profile.php?id=61557062733690" target="_blank" rel="noopener" aria-label="Facebook de Golden Panda"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.tiktok.com/@goldenpanda_z" target="_blank" rel="noopener" aria-label="TikTok de Golden Panda"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.youtube.com/@goldenPanda_z" target="_blank" rel="noopener" aria-label="YouTube de Golden Panda"><i class="fab fa-youtube"></i></a>
+    </div>
+    <p class="footer-credits">© 2026 <span class="gold">Golden Panda</span> · Juan Camilo Zarta Campo — Ingeniero de Sistemas · Software Developer</p>
+  </footer>
+
+  <!-- FLOAT BACK -->
+  <a href="../index.html" class="float-back" aria-label="Volver al inicio">
+    <i class="fas fa-arrow-left"></i>
+  </a>
+
+  <script src="../js/scripts.js"></script>
+  <script src="../js/servicios.js"></script>
+</body>
+</html>

@@ -1,0 +1,241 @@
+/* ============================================================
+   SERVICIOS Y PRECIOS (html/servicios.html)
+   Reutiliza .plan-card, .plan-name, .plan-price, .plan-features,
+   .plan-badge, .btn-plan y .btn-other de sections.css.
+   ============================================================ */
+
+.svc-page {
+  padding-top: clamp(96px, 14vw, 120px);
+}
+
+/* Tabs */
+.svc-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  margin: 0 auto 40px;
+}
+
+.svc-tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: clamp(8px, 1.5vw, 10px) clamp(14px, 2vw, 20px);
+  border-radius: 999px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  cursor: pointer;
+  transition: color var(--transition), background var(--transition), border-color var(--transition);
+  min-height: 44px;
+  white-space: nowrap;
+}
+
+.svc-tab:hover {
+  color: var(--gold);
+  border-color: var(--gold);
+}
+
+.svc-tab.active {
+  color: var(--on-gold);
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold-light), var(--gold));
+  border-color: var(--gold-dark);
+}
+
+.svc-tab i {
+  font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+}
+
+/* Panels */
+.svc-panel {
+  display: none;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.svc-panel.active {
+  display: block;
+}
+
+.svc-intro {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: clamp(0.9rem, 1.8vw, 1rem);
+  max-width: 640px;
+  margin: 0 auto 36px;
+  line-height: 1.6;
+}
+
+/* Plan grid */
+.svc-plans {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 22px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+.svc-plans--2 {
+  max-width: 760px;
+}
+
+.svc-panel .plan-card {
+  height: 100%;
+}
+
+.svc-from {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  font-family: 'Inter', sans-serif;
+  margin-right: 4px;
+}
+
+.svc-tagline {
+  color: var(--text-muted);
+  font-size: clamp(0.8rem, 1.5vw, 0.88rem);
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.svc-small {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  margin-top: -12px;
+}
+
+/* Status badge (SaaS) */
+.svc-status {
+  align-self: flex-start;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+}
+
+.svc-status--live {
+  background: rgba(37, 211, 102, 0.15);
+  color: var(--wa);
+  border: 1px solid var(--wa);
+}
+
+.svc-status--soon {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+
+.svc-banner {
+  max-width: 760px;
+  margin: 0 auto 28px;
+  padding: 12px 18px;
+  text-align: center;
+  background: var(--gold-glow);
+  border: 1px solid var(--gold);
+  border-radius: var(--radius-sm);
+  font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+  line-height: 1.5;
+}
+
+.svc-banner i {
+  color: var(--gold);
+  margin-right: 6px;
+}
+
+/* Labels, chips, notes, CTA */
+.svc-label {
+  text-align: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: clamp(0.9rem, 1.8vw, 1rem);
+  color: var(--text);
+  margin: 36px 0 14px;
+}
+
+.svc-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.svc-chips a,
+.svc-chips span {
+  padding: 7px 16px;
+  border-radius: 999px;
+  font-size: clamp(0.78rem, 1.5vw, 0.85rem);
+  color: var(--text-muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  transition: color var(--transition), border-color var(--transition);
+}
+
+.svc-chips a:hover {
+  color: var(--gold);
+  border-color: var(--gold);
+}
+
+.svc-note {
+  max-width: 760px;
+  margin: 28px auto 0;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: clamp(0.78rem, 1.5vw, 0.85rem);
+  line-height: 1.6;
+}
+
+.svc-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .svc-tabs {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding: 4px 16px 12px;
+    margin-left: -16px;
+    margin-right: -16px;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .svc-tab {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+  }
+
+  .svc-plans {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+  }
+
+  .svc-plans .plan-card.featured {
+    order: -1;
+  }
+}
+
+@media (max-width: 480px) {
+  .svc-plans {
+    max-width: 100%;
+  }
+
+  .svc-panel .plan-card {
+    padding: 28px 22px;
+  }
+}
